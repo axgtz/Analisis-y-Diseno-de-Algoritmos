@@ -29,6 +29,20 @@ Ordenamiento por montículos (Heap Sort)
 Ordenamiento rápido (Quick Sort)
 */
 
+#include <ctime>
+#include <cstdlib>
+
+int main()
+{
+    srand((unsigned)time(0));
+    int random_integer;
+    for(int index=0; index<1000000; index++){
+        random_integer = (rand()%1000000)+1;
+        cout << random_integer << endl;
+    }
+}
+/*
+
 void CocktailSort(int a[], int n){
     bool swapped = true;
     int start = 0;
@@ -78,4 +92,4 @@ int main(int argc, const char * argv[]) {
     printArray(arr,n);
     
     return 0;
-}
+}*/

@@ -54,11 +54,12 @@ void oddEvenSort(int arr[], int n)
 // Driver program to test above functions.
 int main()
 {
+    /*
     int arr[] = {1,9,3,10,15,18,14,13,8,2,7,11,6,19,4,17,5,12,20,16};
     int n = sizeof(arr)/sizeof(arr[0]);
     
     oddEvenSort(arr, n);
-    printArray(arr, n);
+    printArray(arr, n);*/
     
     return (0);
 }
