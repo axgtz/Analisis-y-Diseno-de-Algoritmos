@@ -59,7 +59,8 @@ void genRand(int tamRand){
     srand(time( NULL ));
     
     ofstream myfile;
-    myfile.open ("output.txt");
+    string fileName = to_string(tamRand);
+    myfile.open ( fileName + ".txt");
     
     myfile << tamRand << '\n';  //Se guarda la cantidad de numeres a genera al principio
 
@@ -109,8 +110,9 @@ void lecturaDatos(string nombreArchivo) {
 }
 
 int main(){
-  
+    genRand(100000);
     
+    return 0;
 }
 
 /*
