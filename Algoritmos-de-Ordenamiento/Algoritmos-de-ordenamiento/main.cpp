@@ -2,18 +2,17 @@
 //
 //  Created by Alex Gutz on 8/27/17.
 //  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
-#include <iostream>
-
-using namespace std;
 /*
 YA:
  Print
+ GLOBAL VARIABLES
+ SWAP
+ RANDOMIZER
  
 FALTAN:
-GLOBAL VARIABLES
-SWAP
+
 MANERA DE CALC EL TIEMPO
-RANDOMIZER
+
  
 Ordenamiento de burbuja 	(Bubble Sort)
 Ordenamiento de burbuja bidireccional (Cocktail Sort)
@@ -28,19 +27,92 @@ Ordenamiento por selección (Selection Sort)
 Ordenamiento por montículos (Heap Sort)
 Ordenamiento rápido (Quick Sort)
 */
+#include <iostream>
 
 #include <ctime>
 #include <cstdlib>
 
-int main()
+//Librerias de lectura de datos
+#include <fstream>
+#include <sstream>
+
+//Library import for random generation
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
+using namespace std;
+
+//Global Variables
+int tam;
+int *vec;
+
+void printArray(int arr[], int n)
 {
-    srand((unsigned)time(0));
-    int random_integer;
-    for(int index=0; index<1000000; index++){
-        random_integer = (rand()%1000000)+1;
-        cout << random_integer << endl;
-    }
+    for (int i=0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << "\n";
 }
+
+//Random number Generator and file creator/populator
+void genRand(int tamRand){
+    int random_integer;
+    srand(time( NULL ));
+    
+    ofstream myfile;
+    myfile.open ("output.txt");
+    
+    myfile << tamRand << '\n';  //Se guarda la cantidad de numeres a genera al principio
+
+    for(int index=0; index<tamRand; index++)
+    {
+        random_integer = (rand()%tamRand)+1;
+        myfile << random_integer << '\n';
+    }
+    myfile.close();
+}
+
+void lecturaDatos(string nombreArchivo) {
+    ifstream archivo_entrada; //Declarar variable que se usa para acceder a las funciones de ifstream
+    
+    string st = nombreArchivo + ".txt";
+    
+    archivo_entrada.open(st);
+    
+    if (archivo_entrada.fail()) {
+        cout << "Error al abrir el archivo" << endl;
+        vec[0] = -1;
+        tam = 1;
+        return;
+    }
+    
+    char linea[128];
+    
+    //Usando la variable linea se extrae toda la primera linea del archivo de texto
+    archivo_entrada.getline(linea, sizeof(linea));
+    
+    //Se guarda el numero de numeros que va a contener el arreglo en el atributo de la clase entera "tam"
+    if ( !(istringstream(linea) >> tam) ){
+        tam = 0;
+        cout << "Error al leer el tamaño del arreglo en el archivo de texto" << endl;
+    }
+    
+    
+    vec = new int[tam];
+    
+    
+    for (int i = 0;i<tam;i++) {
+        archivo_entrada.getline(linea, sizeof(linea));
+        vec[i] = stoi(linea);
+    }
+    
+    archivo_entrada.close();
+}
+
+int main(){
+  
+    
+}
+
 /*
 
 void CocktailSort(int a[], int n){
@@ -73,13 +145,6 @@ void CocktailSort(int a[], int n){
         }
         ++start;
     }
-}
-
-void printArray(int arr[], int n)
-{
-    for (int i=0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
 }
 
 int main(int argc, const char * argv[]) {
