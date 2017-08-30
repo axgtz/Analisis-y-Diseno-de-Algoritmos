@@ -6,6 +6,7 @@
 
 #include <ctime>
 #include <cstdlib>
+#include <vector>
 
 //Librerias de lectura de datos
 #include <fstream>
@@ -28,11 +29,11 @@ void printArray()
     cout << "\n";
 }
 
-void swap(int *xp, int *yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+//SWAP
+void swap(int a,int b){
+    int temporal = vec[b];
+    vec[b] = vec[a];
+    vec[a] = temporal;
 }
 
 //Random number Generator and file creator/populator
@@ -91,8 +92,36 @@ void lecturaDatos(string nombreArchivo) {
     archivo_entrada.close();
 }
 
-///--------------------Sorts---------------
-//BubleSort
+///--------------------------------Sorts------------------------------
+//---------------Selection Sort---------------
+void selectionSort(){//Busca el minnimo y los va ponindo al principio
+    int posMenor;
+
+    for(int i = 0; i < tam;i++){
+        posMenor = i;
+        for(int j = i + 1 ; j < tam ; j++){
+            if(vec[posMenor] > vec[j]){//Se encuentra uno menor que el num seleccionado
+                posMenor = j;
+            }
+        }
+        swap(i,posMenor);
+    }
+    
+}
+
+//---------------Insertion Sort---------------
+void insertionSort() {
+    int j;
+    for (int i = 1; i < tam; i++) {
+        j = i;
+        while (j>0 && vec[j-1] > vec[j]) {
+            swap(j, j-1);
+            j--;
+        }
+    }
+}
+
+//---------------BubleSort---------------
 void bubbleSort()
 {
     int i, j;
@@ -101,10 +130,46 @@ void bubbleSort()
         // Last i elements are already in place
         for (j = 0; j < tam-i-1; j++)
             if (vec[j] > vec[j+1])
-                swap(&vec[j], &vec[j+1]);
+                swap(vec[j], vec[j+1]);
 }
 
-//MergeSort
+//---------------QuickSort---------------
+int particion(int lo, int hi) {//Regresa el indice donde quedo el pivote
+    //Arregla los subarreglos tomando en cuenta el pivote
+    int pivote = vec[lo];
+    lo--;
+    hi++;
+    
+    while (true) {
+        do{
+            lo++;
+        }while (pivote > vec[lo]);
+        do {
+            hi--;
+        } while (pivote < vec[hi]);
+        
+        if (lo >= hi) {
+            return hi;
+        }
+        else {
+            swap(lo, hi);
+        }
+    }
+}
+
+void quickSort(int lo, int hi) {
+    int p; 	//pivote
+    if(hi > lo){
+        p = particion(lo, hi);  //Pone el pivote en donde debe de estar en el arreglo y todos
+        //los nums menor al pivote estan antes y los mayores después
+        //Lamar de forma recursiva a quicksort, no se incluye el pivote porque ya esta acomodado
+        quickSort(lo, p);
+        quickSort(p + 1, hi);
+    }
+}
+
+
+//---------------MergeSort---------------
 void Merge(int *a, int low, int high, int mid)
 {
     // We have low to mid and mid+1 to high already sorted.
@@ -170,7 +235,7 @@ void MergeSort(int *a, int low, int high)
     }
 }
 
-//Cocktail Sort
+//---------------Cocktail Sort---------------
 void CocktailSort(){
     bool swapped = true;
     int start = 0;
@@ -203,6 +268,114 @@ void CocktailSort(){
     }
 }
 
+//---------------------ShellSort -------------------
+int shellSort(){
+    // Start with a big gap, then reduce the gap
+    for (int gap = tam/2; gap > 0; gap /= 2){
+        // Do a gapped insertion sort for this gap size.
+        // The first gap elements a[0..gap-1] are already in gapped order
+        // keep adding one more element until the entire array is
+        // gap sorted
+        for (int i = gap; i < tam; i += 1){
+            // add a[i] to the elements that have been gap sorted
+            // save a[i] in temp and make a hole at position i
+            int temp = vec[i];
+            
+            // shift earlier gap-sorted elements up until the correct
+            // location for a[i] is found
+            int j;
+            for (j = i; j >= gap && vec[j - gap] > temp; j -= gap)
+                vec[j] = vec[j - gap];
+            
+            //  put temp (the original a[i]) in its correct location
+            vec[j] = temp;
+        }
+    }
+    return 0;
+}
+
+//---------------------CountSort -------------------
+void countingSort() {
+    int i, j, k;
+    int idx = 0;
+    int min, max;
+    
+    min = max = vec[0];
+    for(i = 1; i < tam; i++) {
+        min = (vec[i] < min) ? vec[i] : min;
+        max = (vec[i] > max) ? vec[i] : max;
+    }
+    
+    k = max - min + 1;
+    /* creates k buckets */
+    int *B = new int [k];
+    for(i = 0; i < k; i++) B[i] = 0;
+    
+    for(i = 0; i < tam; i++) B[vec[i] - min]++;
+    for(i = min; i <= max; i++)
+        for(j = 0; j < B[i - min]; j++) vec[idx++] = i;
+    
+    
+    delete [] B;
+}
+
+//---------------------Tree Sort---------------------
+struct Node{
+    int key;
+    struct Node *left, *right;
+};
+
+struct Node *newNode(int item){
+    struct Node *temp = new Node;
+    temp->key = item;
+    temp->left = temp->right = NULL;
+    return temp;
+}
+
+void storeSorted(Node *root, int vec[], int &i){
+    if (root != NULL){
+        storeSorted(root->left, vec, i);
+        vec[i++] = root->key;
+        storeSorted(root->right, vec, i);
+    }
+}
+
+Node* insert(Node* node, int key){
+    /* If the tree is empty, return a new Node */
+    if (node == NULL) return newNode(key);
+    
+    /* Otherwise, recur down the tree */
+    if (key < node->key)
+        node->left  = insert(node->left, key);
+    else if (key >= node->key)
+        node->right = insert(node->right, key);
+    
+    /* return the (unchanged) Node pointer */
+    return node;
+}
+
+void treeSort(){
+    struct Node *root = NULL;
+    
+    // Construct the BST
+    root = insert(root, vec[0]);
+    for (int i=1; i<tam; i++)
+        insert(root, vec[i]);
+    
+    // Store inoder traversal of the BST
+    // in arr[]
+    int i = 0;
+    storeSorted(root, vec, i);
+}
+
+//---------------------RadixSort -------------------
+
+
+//---------------------BucketSort -------------------
+
+
+//---------------------Heap Sort---------------------
+
 int main(){
     string cantidad;
     cout << "Cuantos datos quieres procesar? Favor de Ingresar el numero:" << endl;
@@ -210,7 +383,14 @@ int main(){
     lecturaDatos(cantidad);
     
     clock_t cl = clock();
-    bubbleSort();
+   
+    treeSort();
+    //countingSort();
+    //shellSort();
+    //quickSort(0, tam-1);
+    //selectionSort();
+    //insertionSort();
+    //bubbleSort();
     //MergeSort(vec, 0, tam-1);
     //CocktailSort();
     
