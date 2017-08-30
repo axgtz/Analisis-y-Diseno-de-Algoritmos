@@ -28,6 +28,13 @@ void printArray()
     cout << "\n";
 }
 
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
 //Random number Generator and file creator/populator
 void genRand(int tamRand){
     int random_integer;
@@ -56,7 +63,7 @@ void lecturaDatos(string nombreArchivo) {
     
     if (archivo_entrada.fail()) {
         cout << "Error al abrir el archivo" << endl;
-        vec[0] = -1;
+        vec[0] = 0;
         tam = 1;
         return;
     }
@@ -84,26 +91,97 @@ void lecturaDatos(string nombreArchivo) {
     archivo_entrada.close();
 }
 
-int main(){
-    lecturaDatos("10");
-    printArray();
-    
-    return 0;
+///--------------------Sorts---------------
+//BubleSort
+void bubbleSort()
+{
+    int i, j;
+    for (i = 0; i < tam-1; i++)
+        
+        // Last i elements are already in place
+        for (j = 0; j < tam-i-1; j++)
+            if (vec[j] > vec[j+1])
+                swap(&vec[j], &vec[j+1]);
 }
 
-/*
+//MergeSort
+void Merge(int *a, int low, int high, int mid)
+{
+    // We have low to mid and mid+1 to high already sorted.
+    int i, j, k, temp[high-low+1];
+    i = low;
+    k = 0;
+    j = mid + 1;
+    
+    // Merge the two parts into temp[].
+    while (i <= mid && j <= high)
+    {
+        if (a[i] < a[j])
+        {
+            temp[k] = a[i];
+            k++;
+            i++;
+        }
+        else
+        {
+            temp[k] = a[j];
+            k++;
+            j++;
+        }
+    }
+    
+    // Insert all the remaining values from i to mid into temp[].
+    while (i <= mid)
+    {
+        temp[k] = a[i];
+        k++;
+        i++;
+    }
+    
+    // Insert all the remaining values from j to high into temp[].
+    while (j <= high)
+    {
+        temp[k] = a[j];
+        k++;
+        j++;
+    }
+    
+    
+    // Assign sorted data stored in temp[] to a[].
+    for (i = low; i <= high; i++)
+    {
+        a[i] = temp[i-low];
+    }
+}
 
-void CocktailSort(int a[], int n){
+// A function to split array into two parts.
+void MergeSort(int *a, int low, int high)
+{
+    int mid;
+    if (low < high)
+    {
+        mid=(low+high)/2;
+        // Split the data into two half.
+        MergeSort(a, low, mid);
+        MergeSort(a, mid+1, high);
+        
+        // Merge them to get sorted output.
+        Merge(a, low, high, mid);
+    }
+}
+
+//Cocktail Sort
+void CocktailSort(){
     bool swapped = true;
     int start = 0;
-    int end = n-1;
+    int end = tam-1;
     
     while (swapped){
         swapped = false;
         
         for (int i = start; i < end; ++i){
-            if (a[i] > a[i + 1]){
-                swap(a[i], a[i+1]);
+            if (vec[i] > vec[i + 1]){
+                swap(vec[i], vec[i+1]);
                 swapped = true;
             }
         }
@@ -116,8 +194,8 @@ void CocktailSort(int a[], int n){
         --end;
         
         for (int i = end - 1; i >= start; --i){
-            if (a[i] > a[i + 1]){
-                swap(a[i], a[i+1]);
+            if (vec[i] > vec[i + 1]){
+                swap(vec[i], vec[i+1]);
                 swapped = true;
             }
         }
@@ -125,14 +203,22 @@ void CocktailSort(int a[], int n){
     }
 }
 
-int main(int argc, const char * argv[]) {
-    int arr[] = {5, 1, 4, 2, 8, 0, 2};
-    int n = sizeof(arr)/ sizeof(arr[0]);
+int main(){
+    string cantidad;
+    cout << "Cuantos datos quieres procesar? Favor de Ingresar el numero:" << endl;
+    cin >> cantidad;
+    lecturaDatos(cantidad);
     
-    CocktailSort(arr,n);
+    clock_t cl = clock();
+    bubbleSort();
+    //MergeSort(vec, 0, tam-1);
+    //CocktailSort();
     
-    printf("Sorted array :\n");
-    printArray(arr,n);
+    double tiempo = (clock()-cl)*1000/CLOCKS_PER_SEC;
+
+    printArray();
+    
+    cout << "Tiempo de ejecucion: " <<  tiempo << " ms" << endl;
     
     return 0;
-}*/
+}
