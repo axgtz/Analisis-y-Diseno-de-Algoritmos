@@ -22,8 +22,7 @@ using namespace std;
 int tam;
 int *vec;
 
-void printArray()
-{
+void printArray(){
     for (int i=0; i < tam; i++)
         cout << vec[i] << " ";
     cout << "\n";
@@ -408,7 +407,26 @@ void radixsort(){
 }
 
 //---------------------BucketSort -------------------
-
+void bucketSort(){
+    vector<int> b[tam];
+    
+    // 2) Put array elements in different buckets
+    for (int i=0; i<tam; i++)
+    {
+        int bi = (tam*vec[i])%tam; // Index in bucket
+        b[bi].push_back(vec[i]);
+    }
+    
+    // 3) Sort individual buckets
+    for (int i=0; i<tam; i++)
+        sort(b[i].begin(), b[i].end());
+    
+    // 4) Concatenate all buckets into arr[]
+    int index = 0;
+    for (int i = 0; i < tam; i++)
+        for (int j = 0; j < b[i].size(); j++)
+            vec[index++] = b[i][j];
+}
 
 //---------------------Heap Sort---------------------
 
@@ -422,6 +440,7 @@ int main(){
     clock_t cl = clock();
     
     //----heapSort(vec, tam);
+    //bucketSort();
     //radixsort();
     //treeSort();
     //countingSort();
