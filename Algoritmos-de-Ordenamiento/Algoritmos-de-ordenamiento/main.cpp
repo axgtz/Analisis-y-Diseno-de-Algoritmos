@@ -2,31 +2,6 @@
 //
 //  Created by Alex Gutz on 8/27/17.
 //  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
-/*
-YA:
- Print
- GLOBAL VARIABLES
- SWAP
- RANDOMIZER
- 
-FALTAN:
-
-MANERA DE CALC EL TIEMPO
-
- 
-Ordenamiento de burbuja 	(Bubble Sort)
-Ordenamiento de burbuja bidireccional (Cocktail Sort)
-Ordenamiento por inserción (Insertion Sort)
-Ordenamiento por casilleros (Bucket Sort)
-Ordenamiento por cuentas (Counting Sort)
-Ordenamiento por mezcla (Merge Sort)
-Ordenamiento con árbol binario(Binary tree Sort)
-Ordenamiento Radix (Radix Sort)
-Ordenamiento Shell (Shell Sort)
-Ordenamiento por selección (Selection Sort)
-Ordenamiento por montículos (Heap Sort)
-Ordenamiento rápido (Quick Sort)
-*/
 #include <iostream>
 
 #include <ctime>
@@ -46,10 +21,10 @@ using namespace std;
 int tam;
 int *vec;
 
-void printArray(int arr[], int n)
+void printArray()
 {
-    for (int i=0; i < n; i++)
-        cout << arr[i] << " ";
+    for (int i=0; i < tam; i++)
+        cout << vec[i] << " ";
     cout << "\n";
 }
 
@@ -110,7 +85,8 @@ void lecturaDatos(string nombreArchivo) {
 }
 
 int main(){
-    genRand(100000);
+    lecturaDatos("10");
+    printArray();
     
     return 0;
 }
