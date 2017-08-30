@@ -429,6 +429,35 @@ void bucketSort(){
 }
 
 //---------------------Heap Sort---------------------
+void heapify(int *array, int n, int root) {
+    int largest = root;
+    int left = (2 * root) + 1;
+    int right = (2 * root) + 2;
+    
+    if(left < n && array[left] > array[largest]) {
+        largest = left;
+    }
+    if(right < n && array[right] > array[largest]) {
+        largest = right;
+    }
+    
+    if(largest != root) {
+        swap(root, largest);
+        heapify(array, n, largest);
+    }
+}
+
+void heapSort() {
+    for(int i = tam / 2 - 1; i >= 0; i--) {
+        heapify(vec, tam, i);
+    }
+    for(int i = tam-1; i >= 0; i--) {
+        swap(i, 0);
+        heapify(vec, i, 0);
+    }
+}
+
+
 
 
 int main(){
@@ -439,7 +468,7 @@ int main(){
     
     clock_t cl = clock();
     
-    //----heapSort(vec, tam);
+    heapSort();
     //bucketSort();
     //radixsort();
     //treeSort();
