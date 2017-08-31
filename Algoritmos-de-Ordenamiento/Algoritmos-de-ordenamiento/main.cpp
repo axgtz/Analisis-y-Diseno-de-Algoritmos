@@ -7,6 +7,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <vector>
+#include <algorithm>
 
 //Librerias de lectura de datos
 #include <fstream>
@@ -410,7 +411,6 @@ void radixsort(){
 void bucketSort(){
     vector<int> b[tam];
     
-    // 2) Put array elements in different buckets
     for (int i=0; i<tam; i++)
     {
         int bi = (tam*vec[i])%tam; // Index in bucket
@@ -483,7 +483,7 @@ int main(){
     
     double tiempo = (clock()-cl)*1000/CLOCKS_PER_SEC;
 
-    printArray();
+    //printArray();
     
     cout << "Tiempo de ejecucion: " <<  tiempo << " ms" << endl;
     
