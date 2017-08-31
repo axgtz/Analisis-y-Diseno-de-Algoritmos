@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include <ctime>
+#include <chrono>
 #include <cstdlib>
 #include <vector>
 #include <algorithm>
@@ -18,6 +19,7 @@
 #include <time.h>       /* time */
 
 using namespace std;
+using namespace std::chrono;
 
 //Global Variables
 int tam;
@@ -466,9 +468,9 @@ int main(){
     cin >> cantidad;
     lecturaDatos(cantidad);
     
-    clock_t cl = clock();
+    high_resolution_clock::time_point t1 = high_resolution_clock::now();
     
-    heapSort();
+    //heapSort();
     //bucketSort();
     //radixsort();
     //treeSort();
@@ -476,16 +478,17 @@ int main(){
     //shellSort();
     //quickSort(0, tam-1);
     //selectionSort();
-    //insertionSort();
-    //bubbleSort();
+    //insertionSort()	;
+    bubbleSort();
     //MergeSort(vec, 0, tam-1);
     //CocktailSort();
-    
-    double tiempo = (clock()-cl)*1000/CLOCKS_PER_SEC;
-
     //printArray();
     
-    cout << "Tiempo de ejecucion: " <<  tiempo << " ms" << endl;
+    high_resolution_clock::time_point t2 = high_resolution_clock::now();
+    
+    duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
+    
+    cout << "Tiempo de ejecucion: " << time_span.count()  << "seconds" << endl;
     
     return 0;
 }
