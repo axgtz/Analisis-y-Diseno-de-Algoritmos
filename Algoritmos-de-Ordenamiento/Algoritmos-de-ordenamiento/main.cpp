@@ -469,18 +469,22 @@ int main(){
     lecturaDatos(cantidad);
     
     high_resolution_clock::time_point t1 = high_resolution_clock::now();
-    //heapSort();
-    //bucketSort();
-    //radixsort();
-    //treeSort();
-    //countingSort();
-    //shellSort();
-    //quickSort(0, tam-1);
-    //selectionSort();
-    //insertionSort()	;
-    bubbleSort();
+    
     //MergeSort(vec, 0, tam-1);
+    //heapSort();
+    //radixsort();
+    //shellSort();
+    //treeSort();
+    //quickSort(0, tam-1);
+    //countingSort();
+    //selectionSort();
+    //insertionSort();
+	
+    bucketSort();
+    //bubbleSort();
     //CocktailSort();
+    
+    
     //printArray();
     
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
