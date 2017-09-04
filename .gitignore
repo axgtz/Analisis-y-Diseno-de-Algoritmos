@@ -10,3 +10,9 @@
 *.xcbkptlist
 
 *.xcscheme
+*.filters
+*.opendb
+*.sln
+Arboles-Balanceados/.vs/Arboles-Balanceados/v14/.suo
+*.vcxproj
+*.db
