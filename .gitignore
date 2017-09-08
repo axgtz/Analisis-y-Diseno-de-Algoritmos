@@ -16,3 +16,11 @@
 Arboles-Balanceados/.vs/Arboles-Balanceados/v14/.suo
 *.vcxproj
 *.db
+*.tlog
+Fibonacci-Iterativo-Recursivo/.vs/Fibonacci-Iterativo-Recursivo/v14/.suo
+*.log
+*.pdb
+Fibonacci-Iterativo-Recursivo/Fibonacci-Iterativo-Recursivo/Debug/main.obj
+*.exe
+Fibonacci-Iterativo-Recursivo/Fibonacci-Iterativo-Recursivo/Debug/vc140.idb
+*.ilk
