@@ -296,7 +296,7 @@ int shellSort(){
     return 0;
 }
 
-//---------------------CountSort -------------------
+//---------------------	Sort -------------------
 void countingSort() {
     int i, j, k;
     int idx = 0;
