@@ -13,8 +13,6 @@
 #include <ctime>
 //Shuffle
 #include <algorithm>
-//Vector
-#include <array>
 
 void menu();
 
@@ -25,6 +23,13 @@ using namespace std::chrono;
 int tam = 100000;
 int * vec = new int[tam];
 
+//SWAP
+void swapT(int a,int b){
+    int temporal = vec[b];
+    vec[b] = vec[a];
+    vec[a] = temporal;
+}
+
 
 //SHUFFLE
 void maShuffle(int tam){        //Version mejorada del Durstenfeld el cual es una version mejorada del
@@ -33,15 +38,8 @@ void maShuffle(int tam){        //Version mejorada del Durstenfeld el cual es un
     
     for (int i = tam - 1; i > 0; i--) {
         int index = floor(rand()%i);
-        swap(i, index);
+        swapT(i, index);
     }
-}
-
-//SWAP
-void swap(int a,int b){
-    int temporal = vec[b];
-    vec[b] = vec[a];
-    vec[a] = temporal;
 }
 
 void numRandNotRepeated(int tam){
@@ -54,7 +52,7 @@ void numRandNotRepeated(int tam){
     for(int index=1; index<=tam; index++){
         vec[index] = index;
     }
-    random_shuffle(&vec[tam], &vec[tam]);
+    maShuffle(tam);
     
     for(int index=0; index<tam; index++){
         myfile << vec[index] << '\n';
@@ -64,10 +62,9 @@ void numRandNotRepeated(int tam){
 }
 
 int main(){
-    int tam = 100000;
-    numRandNotRepeated(tam);
+    //numRandNotRepeated(tam);
     
-    /*
+    
     BinarySearchTree<int> tree;
     
     ifstream archivo_entrada; //Declarar variable que se usa para acceder a las funciones de ifstream
@@ -95,7 +92,7 @@ int main(){
     
     cout << "Tiempo de ejecucion: " << time_span.count()  << "seconds" << endl;
     archivo_entrada.close();
-    */
+    
     int xx;
     cin >> xx;
     return 0;
