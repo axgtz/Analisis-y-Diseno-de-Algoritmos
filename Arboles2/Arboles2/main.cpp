@@ -2,13 +2,49 @@
     Main class for AVL Tree
 */
 #include "AVLTree.h"
+//Librerias de lectura de datos
+#include <fstream>
+#include <sstream>
 
 void menu();
-
+using namespace std;
 int main()
 {
-    std::cout << "BINARY SEARCH TREE TEST" << std::endl;
-    menu();
+	AVLTree<int> tree;
+	ifstream archivo_entrada; //Declarar variable que se usa para acceder a las funciones de ifstream
+
+	string st = "100000.txt";
+
+	archivo_entrada.open(st);
+
+	if (archivo_entrada.fail()) {
+		cout << "Error al abrir el archivo" << endl;
+		return 0;
+	}
+
+	char linea[128];
+
+	archivo_entrada.getline(linea, sizeof(linea));		//Usando la variable linea se extrae toda la primera linea del archivo de texto
+
+	int tam;
+
+	if (!(istringstream(linea) >> tam)) {				//Se guarda el numero de lineas que contiene el archivo de texto
+		tam = 0;
+		cout << "Error al leer el tamaño del arreglo en el archivo de texto" << endl;
+		return 0;
+	}
+
+	for (int i = 0; i<tam; i++) {
+		archivo_entrada.getline(linea, sizeof(linea));
+		//Se inserta el nodo en el Arbol con la funcion insertar de la clase
+		//TreeNode<int> * node = new TreeNode<int>(stoi(linea));
+		tree.insert(stoi(linea));
+		//preset_data[i];
+	}
+
+	archivo_entrada.close();
+   /* std::cout << "BINARY SEARCH TREE TEST" << std::endl;
+    menu();*/
     
     return 0;
 }
@@ -17,6 +53,8 @@ void menu()
 {
     AVLTree<int> tree;
     TreeNode<int> * node;
+
+
     int number;
     char ans = 'a';
     bool found = false;

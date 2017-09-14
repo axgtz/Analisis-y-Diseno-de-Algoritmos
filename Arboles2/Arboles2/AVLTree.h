@@ -8,7 +8,7 @@ Jesús Horacio Rojas Cortés A01020026
 #define AVL_TREE_H
 
 #include "BinarySearchTree.h"
-
+#include <algorithm>
 template <class T>
 class AVLTree : public BinarySearchTree<T> {
     private:
@@ -50,7 +50,7 @@ void AVLTree<T>::updateHeight(TreeNode<T> * _root)
 */
 
 	// Add 1 to the largest of the children's heights
-    _root->setHeight( std::max(leftHeight, rightHeight) + 1 );
+    _root->setHeight(max(leftHeight, rightHeight) + 1 );
 }
 
 // Compute the balance factor as: left height - right height
