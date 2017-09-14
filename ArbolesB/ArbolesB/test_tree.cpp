@@ -93,6 +93,50 @@ int main(){
     cout << "Tiempo de ejecucion: " << time_span.count()  << "seconds" << endl;
     archivo_entrada.close();
     
+    //Busqueda 1
+    t1 = high_resolution_clock::now();
+    tree.search(10);
+    t2 = high_resolution_clock::now();
+    time_span = duration_cast<duration<double> >(t2 - t1);
+    cout << "Busq 1: " << time_span.count()  << "seconds" << endl;
+    
+     //Busqueda 2
+    t1 = high_resolution_clock::now();
+    tree.search(99999);
+    t2 = high_resolution_clock::now();
+    time_span = duration_cast<duration<double> >(t2 - t1);
+    cout << "Busq 2: " << time_span.count()  << "seconds" << endl;
+    
+    //Busqueda 3
+    t1 = high_resolution_clock::now();
+    tree.search(34718);
+    t2 = high_resolution_clock::now();
+    time_span = duration_cast<duration<double> >(t2 - t1);
+     cout << "Busq 3: " << time_span.count()  << "seconds" << endl;
+    
+    //Busqueda 4
+    t1 = high_resolution_clock::now();
+    tree.search(666);
+    t2 = high_resolution_clock::now();
+    time_span = duration_cast<duration<double> >(t2 - t1);
+     cout << "Busq 4: " << time_span.count()  << "seconds" << endl;
+    
+    //Busqueda 5
+    t1 = high_resolution_clock::now();
+    tree.search(13000);
+    t2 = high_resolution_clock::now();
+    time_span = duration_cast<duration<double> >(t2 - t1);
+     cout << "Busq 5: " << time_span.count()  << "seconds" << endl;
+    
+    //Busqueda 6
+    t1 = high_resolution_clock::now();
+    tree.search(60000);
+    t2 = high_resolution_clock::now();
+    time_span = duration_cast<duration<double> >(t2 - t1);
+    cout << "Busq 6: " << time_span.count()  << "seconds" << endl;
+    
+    tree.printInOrder();
+    
     int xx;
     cin >> xx;
     return 0;
