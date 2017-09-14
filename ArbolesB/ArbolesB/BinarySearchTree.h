@@ -1,20 +1,20 @@
-//
-//  BinarySearchTree.hpp
-//  Arboles-Balanceados
-//
-//  Created by Alex Gutz on 8/31/17.
-//  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
-//
+//  Algoritmos-de-ordenamiento
+//  Based on Gilberto Echeverria
+//  Created by Alex Gutz on 8/27/17.
+//  Copyright Â© 2017 Alejandro Gutierrez. All rights reserved.
+#ifndef BINARY_SEARCH_TREE_H
+#define BINARY_SEARCH_TREE_H
+
 #include "BinaryTree.h"
 
 template <class T>
 class BinarySearchTree : public BinaryTree<T> {
-protected:
+    private:
         // Recursive methods, that take the root of the subtree
         void insert(TreeNode<T> * _root, TreeNode<T> * new_node);
         bool search(TreeNode<T> * _root, T data);
         TreeNode<T> * remove(TreeNode<T> * _root, T data);
-
+        
     public:
         BinarySearchTree () {}
         BinarySearchTree (TreeNode<T> * node) { this->root = node; }
@@ -29,16 +29,14 @@ protected:
 
 // Public insertion method that gets the data
 template <class T>
-void BinarySearchTree<T>::insert(T data)
-{
+void BinarySearchTree<T>::insert(T data){
     TreeNode<T> * new_node = new TreeNode<T>(data);
     insert(new_node);
 }
 
 // Public insertion method that gets a tree node
 template <class T>
-void BinarySearchTree<T>::insert(TreeNode<T> * new_node)
-{
+void BinarySearchTree<T>::insert(TreeNode<T> * new_node){
     // Empty tree
     if (this->root == nullptr)
         this->root = new_node;
@@ -150,3 +148,5 @@ TreeNode<T> * BinarySearchTree<T>::remove(TreeNode<T> * _root, T data)
         }
     }
 }
+
+#endif

@@ -1,8 +1,7 @@
-/*
-Jesús Horacio Rojas Cortés A01020026
-    Class template for a generic Binary Tree
-*/
-
+//  Algoritmos-de-ordenamiento
+//  Based on Gilberto Echeverria
+//  Created by Alex Gutz on 8/27/17.
+//  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
@@ -131,7 +130,7 @@ void BinaryTree<T>::printTree(TreeNode<T> * _root, int indent, char branch)
         // Print right branch first (at the top)
         printTree(_root->getRight(), indent+INCREMENT, '/');
         // Print the root node of this subtree
-        std::cout << std::setw(indent) << branch << "== " << _root->getData() << std::endl;
+        std::cout << std::setw(indent) << branch << "- " << _root->getData() << std::endl;
         // Print the left branch
         printTree(_root->getLeft(), indent+INCREMENT, '\\');
     }

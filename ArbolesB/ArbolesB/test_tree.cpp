@@ -1,61 +1,58 @@
-/*Jesús Horacio Rojas Cortés A01020026
-    Main class for AVL Tree
-*/
-#include "AVLTree.h"
+#include <iostream>
+#include "BinarySearchTree.h"
+
 //Librerias de lectura de datos
 #include <fstream>
 #include <sstream>
 
+#include <chrono>
+
+
 void menu();
+
 using namespace std;
-int main()
-{
-	AVLTree<int> tree;
-	ifstream archivo_entrada; //Declarar variable que se usa para acceder a las funciones de ifstream
+using namespace std::chrono;
 
-	string st = "100000.txt";
-
-	archivo_entrada.open(st);
-
-	if (archivo_entrada.fail()) {
-		cout << "Error al abrir el archivo" << endl;
-		return 0;
-	}
-
-	char linea[128];
-
-	archivo_entrada.getline(linea, sizeof(linea));		//Usando la variable linea se extrae toda la primera linea del archivo de texto
-
-	int tam;
-
-	if (!(istringstream(linea) >> tam)) {				//Se guarda el numero de lineas que contiene el archivo de texto
-		tam = 0;
-		cout << "Error al leer el tamaño del arreglo en el archivo de texto" << endl;
-		return 0;
-	}
-
-	for (int i = 0; i<tam; i++) {
-		archivo_entrada.getline(linea, sizeof(linea));
-		//Se inserta el nodo en el Arbol con la funcion insertar de la clase
-		//TreeNode<int> * node = new TreeNode<int>(stoi(linea));
-		tree.insert(stoi(linea));
-		//preset_data[i];
-	}
-
-	archivo_entrada.close();
-   /* std::cout << "BINARY SEARCH TREE TEST" << std::endl;
-    menu();*/
+int main(){
+    BinarySearchTree<int> tree;
     
+    ifstream archivo_entrada; //Declarar variable que se usa para acceder a las funciones de ifstream
+    archivo_entrada.open("100000.txt");
+    
+    if (archivo_entrada.fail()) {
+        cout << "Error al abrir el archivo" << endl;
+
+        return 0;
+    }
+    
+    char linea[128];
+    
+    //Usando la variable linea se extrae toda la primera linea del archivo de texto
+    archivo_entrada.getline(linea, sizeof(linea));
+    high_resolution_clock::time_point t1 = high_resolution_clock::now();
+    for (int i = 0;i<100000;i++) {
+        archivo_entrada.getline(linea, sizeof(linea));
+        tree.insert(stoi(linea));
+    }
+    
+    high_resolution_clock::time_point t2 = high_resolution_clock::now();
+    
+    duration<double> time_span = duration_cast<duration<double> >(t2 - t1);
+    
+    cout << "Tiempo de ejecucion: " << time_span.count()  << "seconds" << endl;
+    archivo_entrada.close();
+    
+    int xx;
+    cin >> xx;
     return 0;
 }
 
-void menu()
-{
-    AVLTree<int> tree;
+
+void menu(){
+    BinarySearchTree<int> tree;
     TreeNode<int> * node;
-
-
     int number;
+    
     char ans = 'a';
     bool found = false;
     int preset_data[] = {9, 2, 5, 12, 7, 18, 13, 14, 1, 29, 16};
@@ -70,6 +67,7 @@ void menu()
         std::cout << "\tr. Remove a number from the tree\n";
         std::cout << "\tc. Clear the tree\n";
         std::cout << "\tp. Print the data in the tree In-order\n";
+        std::cout << "\to. Print the data in the tree Post-order\n";
         std::cout << "\tt. Print the data as a tree\n";
         std::cout << "\tm. Get the smallest number in the tree\n";
         std::cout << "\tl. Get the number of leaves in the tree\n";
@@ -115,6 +113,10 @@ void menu()
             // Print the tree in order
             case 'p':
                 tree.printInOrder();
+                break;
+            // Print the tree post order
+            case 'o':
+                tree.printPostOrder();
                 break;
             // Print the tree "graphically"
             case 't':

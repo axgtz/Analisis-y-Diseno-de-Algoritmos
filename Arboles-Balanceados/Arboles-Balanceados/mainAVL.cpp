@@ -38,20 +38,14 @@ int main(){
 	for (int i = 0; i<tam; i++) {
 		archivo_entrada.getline(linea, sizeof(linea));
 		//Se inserta el nodo en el Arbol con la funcion insertar de la clase
-		//TreeNode<int> * node = new TreeNode<int>(stoi(linea));
-		//tree.insert(atoi(linea));
+		TreeNode<int> * node = new TreeNode<int>(stoi(linea));
+		tree.insert(node);
 		//preset_data[i];
 	}
 
 	archivo_entrada.close();
 	cout << "lall" << endl;
 	tree.printInOrder();
-	/*for (int i = 0; i<100000; i++)
-	{
-		std::cout << preset_data[i] << " ";
-		tree.insert(preset_data[i]);
-	}*/
-    //menu();
 
 	int xx;
 	cin >> xx;
