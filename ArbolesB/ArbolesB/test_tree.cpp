@@ -7,13 +7,67 @@
 
 #include <chrono>
 
+//Floor
+#include <math.h>
+//Time
+#include <ctime>
+//Shuffle
+#include <algorithm>
+//Vector
+#include <array>
 
 void menu();
 
 using namespace std;
 using namespace std::chrono;
 
+//Generar Archivod e 100000 sin repetidos
+int tam = 100000;
+int * vec = new int[tam];
+
+
+//SHUFFLE
+void maShuffle(int tam){        //Version mejorada del Durstenfeld el cual es una version mejorada del
+    //Iniciar seed              //Fisher-Yates algorithm con complejidad O(n), en comparación con O(n^2)
+    srand ( unsigned ( time(0) ) );
+    
+    for (int i = tam - 1; i > 0; i--) {
+        int index = floor(rand()%i);
+        swap(i, index);
+    }
+}
+
+//SWAP
+void swap(int a,int b){
+    int temporal = vec[b];
+    vec[b] = vec[a];
+    vec[a] = temporal;
+}
+
+void numRandNotRepeated(int tam){
+    ofstream myfile;
+    string fileName = to_string(tam);
+    myfile.open ( fileName + ".txt");
+    
+    myfile << tam << '\n';  //Se guarda la cantidad de numeres a genera al principio
+    
+    for(int index=1; index<=tam; index++){
+        vec[index] = index;
+    }
+    random_shuffle(&vec[tam], &vec[tam]);
+    
+    for(int index=0; index<tam; index++){
+        myfile << vec[index] << '\n';
+    }
+    
+    myfile.close();
+}
+
 int main(){
+    int tam = 100000;
+    numRandNotRepeated(tam);
+    
+    /*
     BinarySearchTree<int> tree;
     
     ifstream archivo_entrada; //Declarar variable que se usa para acceder a las funciones de ifstream
@@ -41,7 +95,7 @@ int main(){
     
     cout << "Tiempo de ejecucion: " << time_span.count()  << "seconds" << endl;
     archivo_entrada.close();
-    
+    */
     int xx;
     cin >> xx;
     return 0;
