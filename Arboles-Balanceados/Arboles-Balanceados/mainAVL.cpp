@@ -31,7 +31,7 @@ int main(){
 
 	if (!(istringstream(linea) >> tam)) {				//Se guarda el numero de lineas que contiene el archivo de texto
 		tam = 0;
-		cout << "Error al leer el tamaño del arreglo en el archivo de texto" << endl;
+		cout << "Error al leer el tamano del arreglo en el archivo de texto" << endl;
 		return 0;
 	}
 

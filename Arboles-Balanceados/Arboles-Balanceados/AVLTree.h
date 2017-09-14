@@ -3,7 +3,7 @@
 //  Arboles-Balanceados
 //
 //  Created by Alex Gutz on 8/31/17.
-//  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
+//  Copyright ï¿½ 2017 Alejandro Gutierrez. All rights reserved.
 //
 #include "BinarySearchTree.h"
 #include <algorithm>
@@ -41,7 +41,7 @@ void AVLTree<T>::updateHeight(TreeNode<T> * root){
 template <class T>
 int AVLTree<T>::getBalanceFactor(TreeNode<T> * root){
   if(!root)//not empty
-    return;
+    return 0;
   int leftHeight = 0;
   int rightHeight = 0;
   if (root->getLeft() != nullptr) {
