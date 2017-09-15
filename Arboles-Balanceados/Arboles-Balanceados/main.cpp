@@ -84,7 +84,6 @@ int main(){
     for (int i = 0;i<100000;i++) {
         archivo_entrada.getline(linea, sizeof(linea));
         tree.Insert(stoi(linea),stoi(linea));
-        cout << i << endl;
     }
     
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
@@ -166,7 +165,7 @@ int main(){
     
     //printPretty(tree, 1, 0, cout);
     
-    tree.Dump();
+    //tree.Dump();
     
     int xx;
     cin >> xx;

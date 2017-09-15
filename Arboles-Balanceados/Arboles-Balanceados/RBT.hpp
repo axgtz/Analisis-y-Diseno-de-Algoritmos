@@ -112,11 +112,11 @@ public:
         Node *node = root;
         while (node)
         {
-            if (node->key < key)
+            if (node->key > key)
             {
                 node = node->left;
             }
-            else if (node->key > key)
+            else if (node->key < key)
             {
                 node = node->right;
             }
