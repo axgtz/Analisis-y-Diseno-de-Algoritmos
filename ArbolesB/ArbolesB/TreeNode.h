@@ -9,12 +9,11 @@
 
 template <class T>
 class TreeNode {
-    private:
-        T data;
-        TreeNode * left = nullptr;
-        TreeNode * right = nullptr;
-        int height = 1;
     public:
+    T data;
+    TreeNode * left = nullptr;
+    TreeNode * right = nullptr;
+    int height = 1;
         TreeNode () {}
         TreeNode (T _data) { data = _data; }
         T getData() { return data; }

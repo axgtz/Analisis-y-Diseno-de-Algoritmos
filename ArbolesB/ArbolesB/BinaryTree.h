@@ -13,18 +13,17 @@
 
 template <class T>
 class BinaryTree {
-    protected:
-        TreeNode<T> * root = nullptr;
-
-        // Recursive methods, that take the root of the subtree
-        void clear(TreeNode<T> * _root);
-        TreeNode<T> * getMin(TreeNode<T> * _root);
-        int countLeaves(TreeNode<T> * _root);
-        void printInOrder(TreeNode<T> * _root);
-        void printPostOrder(TreeNode<T> * _root);
-        void printTree(TreeNode<T> * _root, int indent, char branch);
-        
     public:
+    TreeNode<T> * root = nullptr;
+    
+    // Recursive methods, that take the root of the subtree
+    void clear(TreeNode<T> * _root);
+    TreeNode<T> * getMin(TreeNode<T> * _root);
+    int countLeaves(TreeNode<T> * _root);
+    void printInOrder(TreeNode<T> * _root);
+    void printPostOrder(TreeNode<T> * _root);
+    void printTree(TreeNode<T> * _root, int indent, char branch);
+
         BinaryTree () {}
         BinaryTree (TreeNode<T> * node) { root = node; }
         ~BinaryTree () { clear(); }
