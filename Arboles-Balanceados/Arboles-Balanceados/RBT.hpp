@@ -2,7 +2,7 @@
 //  RBT.hpp
 //  Arboles-Balanceados
 //
-//  Created by Alex Gutz on 9/14/17.
+//  Created by Alex Gutz on 9/10/17.
 //  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
 //
 #include <cstdlib>

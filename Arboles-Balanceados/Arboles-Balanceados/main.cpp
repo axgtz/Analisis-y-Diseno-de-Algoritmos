@@ -1,7 +1,10 @@
-#include <iostream>/*
-#include "BinaryFindTree.h"
-#include "AVL.hpp"
-#include "binary_tree_pretty_print.h"*/
+//  Arboles-Balanceados
+//
+//  Created by Alex Gutz on 9/10/17.
+//  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
+//
+#include <iostream>
+
 #include "RBT.hpp"
 
 #include "AVLTree.h"
