@@ -3,9 +3,6 @@
 //  Created by Alex Gutz on 9/10/17.
 //  Copyright © 2017 Alejandro Gutierrez. All rights reserved.
 //
-#ifndef BINARY_TREE_H
-#define BINARY_TREE_H
-
 #include <iostream>
 #include <iomanip>
 #include "TreeNode.h"
@@ -136,5 +133,3 @@ void BinaryTree<T>::printTree(TreeNode<T> * _root, int indent, char branch)
         printTree(_root->getLeft(), indent+INCREMENT, '\\');
     }
 }
-
-#endif
