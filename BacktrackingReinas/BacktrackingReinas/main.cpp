@@ -18,33 +18,66 @@ void imrpimirSolucion(){
 
 //Es seguro poner a la reina
 bool seguro(int row, int col) {
-	//Resolver Fila/Row
-	for (int i = 0; i < tam; i++) {
+	int i, j;
+	//Resolver Fila/Row, checa solo a la derecha porque 
+	//a la izquierda ya estan colocados en otro row
+	for (i= 0; i < col; i++) {
 		if (tablero[row][i]) {
 			return false;
 		}
 	}
 
-	//Resolver Columna
-	for (int i = 0; i < tam; i++) {
-		if (tablero[i][col]) {
+	//Resolver Diagonal arriba
+	for (i = row, j = col; j >= 0 && i < tam; i++, j--) {
+		if (tablero[i][j]) {
 			return false;
 		}
 	}
-	
-	//Resolver diagonal
-	for (int i = 0, int j=0; i < tam; i++) {
-		if (tablero[row][i]) {
+
+	//Resolver Diagonal abajo
+	for (i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+		if (tablero[i][j]) {
 			return false;
 		}
 	}
 	return true;
 }
 
+bool recursivoBuscar(int col) {
+	if (col >= tam) {//Ya estan todas las reinas colocadas en lugares 	
+		return true;//correctos donde no se eliminan
+	}
+	//cR = currentRow
+	for (int cR = 0;cR<tam;cR++) {//Itera por todos los rows
+		if (seguro(cR,col)) {
+
+			//Colocar Reina en tablero
+			tablero[cR][col]=1;
+			//volver a llamar funcion de forma recursiva en sig columna
+			if (recursivoBuscar(col+1)) {
+				return true;
+			}
+			//Si sale del loop , se hace el backtrack porque la reina no se puede
+			//colocar ahí, ya que no llevo a la solucion
+			tablero[cR][col] = 0;
+		}
+	}
+	//La reina no se puede colocar en ningun lugar
+	return false;
+}
+
+bool solucion() {
+	if (!recursivoBuscar(0)){
+		cout << "No existe Solucion" << endl;
+		return false;
+	}
+	imrpimirSolucion();
+	return true;
+}
+
 
 int main() {
-
-	cout << "Ingresa el tamaño del tablero" << endl;
+	cout << "Ingresa el tamano del tablero" << endl;
 	cin >> tam;
 
 	//Crear arreglo que contiene todo
@@ -52,6 +85,14 @@ int main() {
 	for (int i = 0; i < tam; i++)
 		tablero[i] = new int[tam];
 	//Iniciar tablero en 0
-	tablero[tam][tam] = { 0 };
+	for (int i = 0; i < tam; i++) {
+		for (int j = 0; j < tam; j++) {
+			tablero[i][j] = 0;
+		}
+	}
+	solucion();
 
+	int xx;
+	cin >>xx;
+	return 0;
 }
