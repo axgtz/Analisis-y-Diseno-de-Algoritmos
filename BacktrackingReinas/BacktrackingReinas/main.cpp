@@ -1,4 +1,5 @@
 //Roberto Alejandro Gutierrez Guillen	A01019608
+//Resolver problema de Reinas en un tablero con Backtracking
 #include <iostream>
 
 using namespace std;
