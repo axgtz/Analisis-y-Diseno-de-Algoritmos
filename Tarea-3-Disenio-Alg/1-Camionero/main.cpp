@@ -48,7 +48,7 @@ int main() {
         }else{
             cout << "El coche se paro  en las siguientes Gasolineras" << endl;
             for(int i = 0; i< stops.size();i++){
-                cout << "Gas " << i <<": "<< stops[i]<< endl;
+                cout << "Parada número " << i <<": "<< stops[i]<< endl;
             }
         }
     }else {
