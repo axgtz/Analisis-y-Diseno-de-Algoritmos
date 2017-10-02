@@ -15,6 +15,7 @@ int main() {
     int kmRec = 0;
     cout << "Introduce cantidad de kilometros que el coche puede recorrer con el tanque lleno" << endl;
     //cin >> gasTankKm;
+    cout << endl;
 
     vector<int> gasStationsDist;
     vector<int> stops;
@@ -31,13 +32,28 @@ int main() {
     gasStationsDist.push_back(50);
     gasStationsDist.push_back(45);
 
+    int gasLeft = gasTankKm;;
+    for(int i = 0;i <= gasStationsDist.size()-1 ;i++){
+        gasLeft-=gasStationsDist[i];
+        kmRec+=gasStationsDist[i];
+
+        if(gasLeft<gasStationsDist[i+1]){
+            stops.push_back(i);
+            gasLeft = gasTankKm;
+        }
+    }
+
     if(kmRec >= 375){
         if(stops.empty()){//375 km entre DF y Aac
         }else{
-            cout << "El coche se paro en las siguientes Gasolineras" << endl;
+            cout << "El coche se paro  en las siguientes Gasolineras" << endl;
+            for(int i = 0; i< stops.size();i++){
+                cout << "Gas " << i <<": "<< stops[i]<< endl;
+            }
         }
-    }else{
-        cout << "El coche no puede recorrer el trayecto con ese tanque de gasolina" <<endl;
+    }else {
+        cout << "El coche no puede recorrer el trayecto con ese tanque de gasolina" << endl;
+        cout << "El coche recorrió: " << kmRec << endl;
     }
 
 
