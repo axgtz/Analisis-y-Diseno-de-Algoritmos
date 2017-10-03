@@ -9,9 +9,9 @@ Dadas dos secuencias X e Y, se dice que Z es una subsecuencia común de X e Y si
 Diseñe un algoritmo que permita determinar la subsecuencia de longitud máxima común a dos secuencias.
 */
 //Complejidad es O(n*m) n por el numero de columnas que se recorren y m por las filas que se recorren en la matriz
-//Algoritmo dinámico
+//Algoritmo programación dinámico
 
-void lcs(char *X, char *Y, int m, int n){
+void subsequenciaComunMax(char *X, char *Y, int m, int n){
 	vector<vector<int>> L;
 
 	for (int i = 0; i <= m; i++){
@@ -31,7 +31,6 @@ void lcs(char *X, char *Y, int m, int n){
 
 	int i = m, j = n;
 	while (i > 0 && j > 0){
-
 		if (X[i - 1] == Y[j - 1]){
 			substring[index - 1] = X[i - 1];
 			i--; j--; index--;  
@@ -42,15 +41,14 @@ void lcs(char *X, char *Y, int m, int n){
 			j--;
 	}
 	//Imprimir substring
-	cout << "El substring de " << X << " y " << Y << " es " << substring <<endl;
+	cout << "El substring de " << X << " y " << Y << " es " << substring << endl;
 }
 
-int main()
-{
+int main(){
 	char X[] = "GGATABA";
 	char Y[] = "BBBGATACA";
 	int m = strlen(X);
 	int n = strlen(Y);
-	lcs(X, Y, m, n);
+	subsequenciaComunMax(X, Y, m, n);
 	return 0;
 }
