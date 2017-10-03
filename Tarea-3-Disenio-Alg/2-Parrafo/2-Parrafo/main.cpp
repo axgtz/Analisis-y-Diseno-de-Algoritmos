@@ -11,6 +11,7 @@ decir (L – li – li+1 – ... – lj)/(j – i). No obstante, si j = n (la última palab
 using namespace std;
 //Tecnica: Algoritmo Avido
 //Complejidad O(n^2)
+//Conocido como word wrap problem
 #define INF 100
 
 int imprimirSol(int p[], int n);
