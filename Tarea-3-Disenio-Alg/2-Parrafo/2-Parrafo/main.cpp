@@ -10,54 +10,67 @@ decir (L – li – li+1 – ... – lj)/(j – i). No obstante, si j = n (la última palab
 #include <vector>
 using namespace std;
 //Tecnica: Algoritmo Avido
-//Complejidad O(n)
-int main() {
-	vector<string> parrafo, linea;
-	vector<float> l;
-	float L = 20, b = 1, length = 0, linelength = 0, extra, expanding, reducing;
-	int i = 0, j;
-	bool imprimio = true;
+//Complejidad O(n^2)
+#define INF INT_MAX
 
+int imprimirSol(int p[], int n);
 
-	for (j = 0; j < parrafo.size(); j++){
-		if (imprimio){
-			i = j;
-			imprimio = false;
-			linea.clear();
-			length = 0;
+int main()
+{
+	int l[] = { 3, 2, 2, 5 };
+	int n = sizeof(l) / sizeof(l[0]);
+	int M = 6;
+
+	int extras[n + 1][n + 1];
+
+	int lc[n + 1][n + 1];
+
+	int c[n + 1];
+
+	int p[n + 1];
+
+	int i, j;
+
+	for (i = 1; i <= n; i++){
+		extras[i][i] = M - l[i - 1];
+		for (j = i + 1; j <= n; j++)
+			extras[i][j] = extras[i][j - 1] - l[j - 1] - 1;
+	}
+
+	for (i = 1; i <= n; i++){
+		for (j = i; j <= n; j++){
+			if (extras[i][j] < 0)
+				lc[i][j] = INF;
+			else if (j == n && extras[i][j] >= 0)
+				lc[i][j] = 0;
+			else
+				lc[i][j] = extras[i][j] * extras[i][j];
 		}
-		length += l[j];
-		linelength = length + ((j - i) * b);
-		if (linelength > L){
-			extra = linelength - L;
-			reducing = b - (extra / (j - i));
-			expanding = b + (L - ((length - l[j]) + (b * (j - i - 1)))) / (j - i - 1);
+	}
 
-			if (((fabs(expanding - b) * (j - i - 1)) > (fabs(reducing - b) * (j - i))) && reducing > 0){
-				linea.push_back(parrafo[j]);
-				for (auto x : linea) {
-					cout << x << " ";
-				}
-				cout << reducing << "r";
-				cout << "\n";
-				imprimio = true;
 
-			}else{
-				for (auto x : linea){
-					cout << x << " ";
-				}
-				cout << expanding << "a";
-				cout << "\n";
-				j--;
-				imprimio = true;
+	c[0] = 0;
+	for (j = 1; j <= n; j++){
+		c[j] = INF;
+		for (i = 1; i <= j; i++){
+			if (c[i - 1] != INF && lc[i][j] != INF && (c[i - 1] + lc[i][j] < c[j])){
+				c[j] = c[i - 1] + lc[i][j];
+				p[j] = i;
 			}
 		}
-		linea.push_back(parrafo[j]);
 	}
-	for (auto x : linea){
-		cout << x << " ";
-	}
-	cout << "\n";
 
+	imprimirSol(p, n);
 	return 0;
+}
+
+int imprimirSol(int p[], int n) {
+	int numL;
+	if (p[n] == 1) {
+		numL = 1;
+	}else {
+		numL = imprimirSol(p, p[n] - 1) + 1;
+	}
+	cout << "Numero de linea: " << numL << "Palabra num " << p[n] << "a palabra num" << n << endl;
+	return k;
 }
