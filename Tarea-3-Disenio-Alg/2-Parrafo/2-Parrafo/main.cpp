@@ -11,12 +11,11 @@ decir (L – li – li+1 – ... – lj)/(j – i). No obstante, si j = n (la última palab
 using namespace std;
 //Tecnica: Algoritmo Avido
 //Complejidad O(n^2)
-#define INF INT_MAX
+#define INF 100
 
 int imprimirSol(int p[], int n);
 
-int main()
-{
+int main(){
 	int l[] = { 3, 2, 2, 5 };
 	int n = sizeof(l) / sizeof(l[0]);
 	int M = 6;
