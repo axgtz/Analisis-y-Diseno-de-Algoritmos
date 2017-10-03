@@ -8,69 +8,41 @@ decir (L – li – li+1 – ... – lj)/(j – i). No obstante, si j = n (la última palab
 (ya que no es necesario ampliar la última línea).*/
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 //Tecnica: Algoritmo Avido
 //Complejidad O(n^2)
 //Conocido como word wrap problem
-#define INF 100
 
-int imprimirSol(int p[], int n);
 
-int main(){
-	int l[] = { 3, 2, 2, 5 };
-	int n = sizeof(l) / sizeof(l[0]);
-	int M = 6;
-
-	int extras[n + 1][n + 1];
-
-	int lc[n + 1][n + 1];
-
-	int c[n + 1];
-
-	int p[n + 1];
-
-	int i, j;
-
-	for (i = 1; i <= n; i++){
-		extras[i][i] = M - l[i - 1];
-		for (j = i + 1; j <= n; j++)
-			extras[i][j] = extras[i][j - 1] - l[j - 1] - 1;
+int subsecuenciaComunMax(string x, string y) {
+	int m = x.size();
+	int n = y.size();
+	int ** sub[m + 1][n + 1];
+	for (int i = 0; i < m; i++) {
+		sub[i][0] = 0;
 	}
-
-	for (i = 1; i <= n; i++){
-		for (j = i; j <= n; j++){
-			if (extras[i][j] < 0)
-				lc[i][j] = INF;
-			else if (j == n && extras[i][j] >= 0)
-				lc[i][j] = 0;
-			else
-				lc[i][j] = extras[i][j] * extras[i][j];
-		}
+	for (int j = 0; j < n; j++) {
+		sub[0][j] = 0;
 	}
-
-
-	c[0] = 0;
-	for (j = 1; j <= n; j++){
-		c[j] = INF;
-		for (i = 1; i <= j; i++){
-			if (c[i - 1] != INF && lc[i][j] != INF && (c[i - 1] + lc[i][j] < c[j])){
-				c[j] = c[i - 1] + lc[i][j];
-				p[j] = i;
+	for (int i = 1; i <= m; i++) {
+		for (int j = 1; j <= n; j++) {
+			if (x[i - 1] == y[j - 1]) {
+				sub[i][j] = 1 + sub[i - 1][j - 1];
+			}
+			else {
+				sub[i][j] = 0;
 			}
 		}
 	}
-
-	imprimirSol(p, n);
-	return 0;
+	return sub[m][n];
 }
-
-int imprimirSol(int p[], int n) {
-	int numL;
-	if (p[n] == 1) {
-		numL = 1;
-	}else {
-		numL = imprimirSol(p, p[n] - 1) + 1;
-	}
-	cout << "Numero de linea: " << numL << "Palabra num " << p[n] << "a palabra num" << n << endl;
-	return k;
+int main() {
+	string x, y;
+	cout << "Escribe secuencia 1" << endl;
+	cin >> x;
+	cout << "Escribe secuencia 2" << endl;
+	cin >> y;
+	cout << subsecuenciaComunMax(x, y);
+	return 0;
 }

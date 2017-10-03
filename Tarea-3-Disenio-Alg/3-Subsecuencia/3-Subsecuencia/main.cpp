@@ -1,6 +1,7 @@
 ﻿//Roberto Alejandro Gutierrez Guillen       A01019608
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 /*
 Dada una secuencia X={x1 x2 ... xm}, se dice que Z={z1 z2 ... zk} es una subsecuencia de X (siendo k ≤ m)
