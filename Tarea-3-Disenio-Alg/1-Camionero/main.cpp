@@ -10,6 +10,9 @@ el camionero desea detenerse a abastecer gasolina el menor número de veces posi
 Diseñe un algoritmo eficiente que determine en qué gasolineras tiene que parar el camionero.
 */
 
+//Complejidad O(n) por el for que recorre "n" distancias entre gasolineras del vector "stops"
+//La técnica del algoritmo es ávido
+
 int main() {
     int gasTankKm = 80;
     int kmRec = 0;
