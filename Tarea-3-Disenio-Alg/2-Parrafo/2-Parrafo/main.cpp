@@ -22,7 +22,7 @@ int main() {
 	for (j = 0; j < parrafo.size(); j++){
 		if (imprimio){
 			i = j;
-			printed = false;
+			imprimio = false;
 			linea.clear();
 			length = 0;
 		}
