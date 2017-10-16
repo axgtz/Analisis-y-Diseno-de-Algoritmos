@@ -135,14 +135,14 @@ vector<std::tuple<Vertex, Vertex, int>> kruskals(DirectedGraph g){
     vector<std::tuple<Vertex, Vertex, int>> result;
     std::priority_queue<Edge, vector<Edge>, oper2> next;
     pair<v_it,v_it> iterators = vertices(g);
-    int counter = 0;
+    int contador = 0;
     Edge checking;
     Vertex source, target;
     for(v_it it = iterators.first; it != iterators.second; ++it){
         vector<int>* a = new vector<int>;
-        a->push_back(counter);
+        a->push_back(contador);
         travelled.push_back(a);
-        ++counter;
+        contador++;
     }
     pair<e_it,e_it> edIt = edges(g);
     for(e_it it = edIt.first; it != edIt.second; ++it){
