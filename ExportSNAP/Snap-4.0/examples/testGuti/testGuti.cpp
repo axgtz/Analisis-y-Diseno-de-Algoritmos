@@ -137,7 +137,7 @@ void exportarGrapSON(PNGraph Graph){
         for (TNGraph::TNodeI NI = Graph->BegNI(); NI < Graph->EndNI(); NI++){
             archivo_salida << "{\n \"_id\": \"" << NI.GetId() << "\" }";
             
-            if (NI++ == Graph->EndNI()){//Si es el ultimo nodo
+            if (NI == Graph->EndNI()){//Si es el ultimo nodo
                 archivo_salida << " ],\n";
             }else{//Todos los demas nodos
                 archivo_salida << ",\n";
@@ -148,7 +148,7 @@ void exportarGrapSON(PNGraph Graph){
         for (TNGraph::TEdgeI EI = Graph->BegEI(); EI < Graph->EndEI(); EI++){
             archivo_salida << "{ \"source\": \"" << EI.GetSrcNId() << "\", \"target\": \"" << EI.GetDstNId() << "\" }";
             
-            if (EI++ == Graph->EndEI()){
+            if (EI == Graph->EndEI()){
                 archivo_salida << " ]\n";
             }else{
                 archivo_salida << ",\n";
