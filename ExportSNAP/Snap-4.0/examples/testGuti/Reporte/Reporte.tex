@@ -1,0 +1,279 @@
+\documentclass[prodmode,acmtecs]{acmsmall} % Aptara syntax
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{cite}
+\usepackage{listings,multicol}
+\usepackage{hyperref}
+
+\renewcommand{\algorithmcfname}{ALGORITHM}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small}
+\SetAlCapNameFnt{\small}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+
+% Metadata Information
+\acmVolume{1}
+\acmNumber{1}
+\acmYear{2017}
+\acmMonth{10}
+
+%\issn{1234-56789}
+
+\begin{document}
+
+\title{Exportar Grafos en formatos: GDF, GraphSON, GraphML , GEXF}
+
+\author{
+Roberto Alejandro Guti\'{e}rrez Guill\'{e}n\\
+Instituto Tecnológico y de Estudios Superiores de Monterrey, Campus Santa Fe\\
+Mexico\\
+A01019608@itesm.mx
+       }
+
+\maketitle
+
+\begin{abstract}
+En este art\'{i}culo de investigac\'{i}on se demostraran las diferentes formas de exportar un grafo, usando la l\'{i}breria de SNAP para C++, los formatos a exportar el grafo son los siguientes: GDF, GraphSON, GraphML y GEXF. Adem\'{a}s se discutir\'{a}n los aspectos positivos y negativos de cada formato de exportaci\'{o}n.
+\end{abstract}
+
+\vspace{5mm} 
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003752.10003809.10003635</concept_id>
+<concept_desc>Theory of computation~Graph algorithms analysis</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+
+\ccsdesc[500]{Theory of computation~Graph algorithms analysis}
+
+ 
+\vspace{5mm} 
+\keywords{Graphs, acm, export, c++, GraphSON, GEXF, GDF, GraphML }
+
+\vspace{5mm} 
+\acmformat{Roberto Alejandro Guti\'{e}rrez Guill\'{e}n. 2017. Exportar Grafos en formatos: GDF, GraphSON, GraphML , GEXF.}
+
+
+
+\vspace{5mm} 
+
+\section{Github}
+https://github.com/axgtz/Analisis-y-Diseno-de-Algoritmos/tree/master/ExportSNAP/Snap-4.0/examples/testGuti
+\vspace{5mm} 
+\section{Introducci\'{o}n }
+Los grafos son una estructura de datos de la computaci\'{o}n. Son un conjunto de nodos(v\'{e}rtices) que representan a un objeto, y estan unidos por aristas. Puede que las uniones sean dirigidas o no, tambi\'{e}n, pueden tener peso y otros atributos. Son usados para muchas cosas, por ejemplo para mostrar un mapa de amistades en Facebook o una red de computadoras.
+
+
+
+\section{Procedimiento}
+
+
+\section{Ventajas y Desventajas}
+\subsection{GDF}
+Este formato esta basado en el formato CSV(Comma Separated File), por lo tanto es muy f'{a}cil de leer y de convertir a CSV. Adme'{a}s fue el formato m'{a}s r'{a}pido de exportar por su simple estructura.
+
+\subsection{GEXF}
+Este formato es muy usado en la industria, por lo tanto es muy maduro y robusto, por lo que da confianza. Es muy parecido a GraphML ya que tambi'{e}n se basa en XML pero es menos utilizado en la industria.
+
+\subsection{GraphML}
+GraphML es un formato para almacenar datos basado en XML, y soporta menos información adicional que sus rivales, esto ayuda en su facilidad de exportar pero no se pueden incluir grafos complejos.
+
+\subsection{GraphSON}
+Una gran desventaja es que la '{u}ltima versi'{o}n de Gephi, una aplicaci'{o}n usada para visualizar grafos, no soporta este formato en su '{o}ltima versi'{o}n. Es el formato m'{a}s complejo de exportar porque no existe un est'{a}ndar pero esto tiene la ventaja de que puede ser adaptado a cualquier situaci'{o}n. 
+\vspace{5mm} 
+
+
+\section{Complejidades Temporal y Espacial}
+\subsection{Complejidad Temporal }
+Los cuatro formatos de exportaci'{o}n  tienen la misma complejidad temporal, ya que guardan todos los nodos y todos los vertices, y se tienen que recorrer todos para ser exportados, por lo tanto complejidad temporal de los cuatro algoritmos es de O(V+E).\subsection{Complejidad Espacial }
+La complejidad espacial es O(V+E), la suma de la cantidad de nodos y uniones.
+
+
+\section{Tiempos de ejecuci\'{o}n}
+\begin{tabular}{| p{6.2cm} | p{5.2cm} | }
+\hline
+\\
+Tiempo de ejecuci\'{o}n GDF: & 0.0369601 segundos	\\
+
+Tiempo de ejecuci\'{o}n GEXF: & 0.0503775 segundos	\\
+
+Tiempo de ejecuci\'{o}n GraphML: & 0.0511828 segundos\\
+
+Tiempo de ejecuci\'{o}n GraphSON: & 0.0392701 segundos\\
+\end{tabular}
+\vspace{5mm} 
+
+
+
+
+
+\section{Gephi}        
+
+\begin{figure}
+\centering
+\includegraphics[width=18cm]{grafo}
+\caption{Resultado de visualización en Gephi}
+\end{figure}
+                             
+       
+
+
+\section{Apendice} 
+
+\bibliography{citations}
+\appendix
+\section{Funci\'{o}n para exportar a GDF}
+\begin{lstlisting}
+
+void exportarGDF(PNGraph Graph){
+    ofstream archivo_salida;
+    archivo_salida.open("grafoGnutella.gdf");
+    
+    if (archivo_salida.is_open()){
+        archivo_salida << "nodedef>name\n";
+        for (TNGraph::TNodeI NI = Graph->BegNI(); NI < Graph->EndNI(); NI++){
+            archivo_salida << NI.GetId() << ",\n";
+        }
+        
+        archivo_salida << "edgedef>node1,node2\n";
+        for (TNGraph::TEdgeI EI = Graph->BegEI(); EI < Graph->EndEI(); EI++){
+            archivo_salida << EI.GetSrcNId() << "," << EI.GetDstNId() << "\n";
+        }
+        
+        archivo_salida.close();
+    }
+}
+\end{lstlisting}
+
+\vspace{5mm} 
+
+\section{Funci\'{o}n para exportar a GraphSON}
+\begin{lstlisting}
+
+void exportarGrapSON(PNGraph Graph){
+    ofstream archivo_salida;
+    archivo_salida.open("grafoGnutella.json");
+    
+    if (archivo_salida.is_open()){
+        archivo_salida << "{ \"graph\": {\n";
+        archivo_salida << "\"nodes\": [\n";
+        
+        for (TNGraph::TNodeI NI = Graph->BegNI(); NI < Graph->EndNI(); NI++){
+            archivo_salida << "{\n \"_id\": \"" << NI.GetId() << "\" }";
+            
+            if (NI == Graph->EndNI()){//Si es el ultimo nodo
+                archivo_salida << " ],\n";
+            }else{//Todos los demas nodos
+                archivo_salida << ",\n";
+            }
+        }
+        
+        archivo_salida << "\"edges\": [\n";
+        for (TNGraph::TEdgeI EI = Graph->BegEI(); EI < Graph->EndEI(); EI++){
+            archivo_salida << "{ \"source\": \"" << EI.GetSrcNId() << "\", \"target\": \"" << EI.GetDstNId() << "\" }";
+            
+            if (EI == Graph->EndEI()){
+                archivo_salida << " ]\n";
+            }else{
+                archivo_salida << ",\n";
+            }
+        }
+        archivo_salida << "} }";
+        
+    }
+}
+\end{lstlisting}
+
+\vspace{5mm} 
+
+\section{Funci\'{o}n para exportar GraphML}
+\begin{lstlisting}
+
+void exportarGraphMl(PNGraph Graph){
+    ofstream archivo_salida;
+    archivo_salida.open("grafoGnutella.graphml");
+    
+    if (archivo_salida.is_open()){
+        archivo_salida << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        archivo_salida << "<graphml xmlns=\"http://graphml.graphdrawing.org/xmlns\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd\">\n";
+        archivo_salida << "<graph id=\"G\" edgedefault=\"directed\">\n";
+        
+        for (TNGraph::TNodeI NI = Graph->BegNI(); NI < Graph->EndNI(); NI++){
+            archivo_salida << "<node id=\"n" << NI.GetId() << "\"/>\n";
+        }
+        int i = 0;
+        for (TNGraph::TEdgeI EI = Graph->BegEI(); EI < Graph->EndEI(); EI++,i++){
+            archivo_salida << "<edge id=\"e" << i << "\" source=\"n" << EI.GetSrcNId() << "\" target=\"n" << EI.GetDstNId() << "\" />\n";
+        }
+        
+        archivo_salida << "</graph>\n";
+        archivo_salida << "</graphml>\n";
+        archivo_salida.close();
+    }
+}
+\end{lstlisting}
+
+\vspace{5mm} 
+
+\section{Funci\'{o}n para exportar a GEXF}
+\begin{lstlisting}
+void exportarGEXF(PNGraph Graph){//
+    ofstream archivo_salida;
+    archivo_salida.open("grafoGnutella.gexf");
+    
+    if (archivo_salida.is_open()){
+        archivo_salida << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        archivo_salida << "<gexf xmlns=\"http://www.gexf.net/1.2draft\" version=\"1.2\">\n";
+        archivo_salida << "<graph mode=\"static\" defaultedgetype=\"directed\">\n";
+        archivo_salida << "<nodes>\n";
+        
+        
+        for (TNGraph::TNodeI NI = Graph->BegNI(); NI < Graph->EndNI(); NI++){
+            archivo_salida << "<node id=\"" << NI.GetId() << "\" />\n";
+        }
+        
+        archivo_salida << "</nodes>\n";
+        archivo_salida << "<edges>\n";
+        int i = 0;
+        for (TNGraph::TEdgeI EI = Graph->BegEI(); EI < Graph->EndEI(); EI++,i++){
+            archivo_salida << "<edge id=\"" << i << "\" source=\"" << EI.GetSrcNId() << "\" target=\"" << EI.GetDstNId() << "\" />\n";
+        }
+        archivo_salida << "</edges>\n";
+        archivo_salida << "</graph>\n";
+        archivo_salida << "</gexf>\n";
+        archivo_salida.close();
+    }
+}
+
+\end{lstlisting}
+
+
+%\nocite{*}
+%\bibliographystyle{acm}
+%\bibliography{citatarea}
+
+\begin{thebibliography}{9}
+
+\bibitem{1}
+  Stanford. 2002. Gnutella peer-to-peer network: August 4 2002.  Retrieved October,2017 from https://snap.stanford.edu/data/p2p-Gnutella04.html. 
+  
+  \bibitem{2}
+  Dan LaRocque. 2014 . GraphSON Format. Retrieved October,2017 from https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format    
+  
+  \bibitem{3}
+  Charles Iliya Krempeaux. 2013. GDF: A CSV Like Format For Graphs. Retrieved October,2017 from http://changelog.ca/log/2013/03/09/gdf. 
+  
+     \bibitem{4}
+ Gephi. 2017. GraphML Format. Retrieved October, 2017 from https://gephi.org/users/supported-graph-formats/graphml-format/
+ 
+	\bibitem{5}
+ Gephi. 2017. GEXF File Formatt. Retrieved October, 2017 from https://gephi.org/gexf/format/
+
+\end{thebibliography}
+\end{document}
