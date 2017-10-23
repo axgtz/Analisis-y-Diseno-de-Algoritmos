@@ -65,28 +65,28 @@ En este art\'{i}culo de investigac\'{i}on se demostraran las diferentes formas d
 
 \section{Github}
 https://github.com/axgtz/Analisis-y-Diseno-de-Algoritmos/tree/master/ExportSNAP/Snap-4.0/examples/testGuti
-\vspace{5mm} 
+
 \section{Introducci\'{o}n }
 Los grafos son una estructura de datos de la computaci\'{o}n. Son un conjunto de nodos(v\'{e}rtices) que representan a un objeto, y estan unidos por aristas. Puede que las uniones sean dirigidas o no, tambi\'{e}n, pueden tener peso y otros atributos. Son usados para muchas cosas, por ejemplo para mostrar un mapa de amistades en Facebook o una red de computadoras.
 
 
 
 \section{Procedimiento}
-Primeramente, se elige una dataset de la siguiente pagina https://snap.stanford.edu/data/index.html, si el numero de nodos y uniones es menor, sera mas facil de procesar. Preferiblemente elegir un dataset que sea dirigido, para obtener resultados m\'{a}s interesantes.
+Primeramente, se elige una dataset de la siguiente pagina \url{ https://snap.stanford.edu/data/index.html}, si el numero de nodos y uniones es menor, sera mas facil de procesar. Preferiblemente elegir un dataset que sea dirigido, para obtener resultados m\'{a}s interesantes.
 
-Despues, se baja SNAP de la siguiente pagina https://snap.stanford.edu, usando la documentaci\'{o}n proporcionada se compila todos los programas incluidos. En tercer lugar, se usa un proyecto de la secci\'{o}n de examples y se modifica para poder leer el dataset que se descargo y tambi\'{e}n para poder exportar en los cuatro formatos especificados(GDF, GraphSON, GraphML , GEXF). 
+Despues, se baja SNAP de la siguiente pagina  \url{https://snap.stanford.edu}, usando la documentaci\'{o}n proporcionada se compila todos los programas incluidos. En tercer lugar, se usa un proyecto de la secci\'{o}n de examples y se modifica para poder leer el dataset que se descargo y tambi\'{e}n para poder exportar en los cuatro formatos especificados(GDF, GraphSON, GraphML , GEXF). 
 
 En la secci\'{o}n de lectura se declara el grafo el cual en este caso es dirigido. Despu\'{e}s, se agregan los nodos al grafo y luego todas las uniones. Al acabar se miden los tiempos al ejecutar cada forma de exportar. Al finalizar de correr el c\'{o}digo, se pueden visualizar los grafos exportados usando el programa Gephi. 
 
 \section{Ventajas y Desventajas}
 \subsection{GDF}
-Este formato esta basado en el formato CSV(Comma Separated File), por lo tanto es muy f'{a}cil de leer y de convertir a CSV. Adme'{a}s fue el formato m\'{a}s r'\{a}pido de exportar por su simple estructura.
+Este formato esta basado en el formato CSV(Comma Separated File), por lo tanto es muy f\'{a}cil de leer y de convertir a CSV. Adme'{a}s fue el formato m\'{a}s r'\{a}pido de exportar por su simple estructura.
 
 \subsection{GEXF}
 Este formato es muy usado en la industria, por lo tanto es muy maduro y robusto, por lo que da confianza. Es muy parecido a GraphML ya que tambi\'{e}n se basa en XML pero es menos utilizado en la industria.
 
-\subsection{GraphML}
-GraphML es un formato para almacenar datos basado en XML, y soporta menos información adicional que sus rivales, esto ayuda en su facilidad de exportar pero no se pueden incluir grafos complejos.
+\subsection{Formato GraphML}
+GraphML es un formato para almacenar datos basado en XML, y soporta menos informacion adicional que sus rivales, esto ayuda en su facilidad de exportar pero no se pueden incluir grafos complejos.
 
 \subsection{GraphSON}
 Una gran desventaja es que la \'{u}ltima versi\'{o}n de Gephi, una aplicaci\'{o}n usada para visualizar grafos, no soporta este formato en su \'{o}ltima versi'\{o}n. Es el formato m'{a}s complejo de exportar porque no existe un est\'{a}ndar pero esto tiene la ventaja de que puede ser adaptado a cualquier situaci\'{o}n. 
