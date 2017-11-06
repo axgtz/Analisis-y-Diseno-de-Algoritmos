@@ -1,0 +1,12 @@
+#ifndef GRAFICOSQT_GLOBAL_H
+#define GRAFICOSQT_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(GRAFICOSQT_LIBRARY)
+#  define GRAFICOSQTSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define GRAFICOSQTSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // GRAFICOSQT_GLOBAL_H

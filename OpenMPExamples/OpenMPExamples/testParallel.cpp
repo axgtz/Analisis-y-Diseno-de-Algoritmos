@@ -4,8 +4,9 @@
 //
 //  Created by Alex Gutz on 10/30/17.
 //  Copyright © 2017 Alex Gutz. All rights reserved.
-//
+//  g++-7 testParallel.cpp -fopenmp
 #include <iostream>
+#include <omp.h>
 
 int main(){
 #pragma omp parallel
