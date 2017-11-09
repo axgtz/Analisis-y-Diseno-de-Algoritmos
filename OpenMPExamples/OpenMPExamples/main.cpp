@@ -86,7 +86,7 @@ int main(){
     
 #pragma omp parallel num_threads(3) shared(suma,a) private(i)
     {
-#pragma omp for private(i) reduction(+:suma)
+    #pragma omp for private(i) reduction(+:suma)
         for(i=0;i<N;i++){
             suma += a[i];
         }
