@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-11-06T08:51:30
+# Project created by QtCreator 2017-11-10T17:03:14
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = GraficosQT
+TARGET = QTGraphics
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,10 +25,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        dialog.cpp \
+    poligononlados.cpp \
+    cubo.cpp \
+    cono.cpp \
+    prismabaserect.cpp \
+    prismabasetrian.cpp \
+    arco.cpp \
+    poligononlados.cpp
 
 HEADERS += \
-        mainwindow.h
+        dialog.h \
+    poligononlados.h \
+    cubo.h \
+    cono.h \
+    prismabaserect.h \
+    prismabasetrian.h \
+    arco.h \
+    poligononlados.h
 
 FORMS += \
-        mainwindow.ui
+        dialog.ui \
+    cubo.ui \
+    cono.ui \
+    prismabaserect.ui \
+    prismabasetrian.ui \
+    arco.ui \
+    poligononlados.ui
