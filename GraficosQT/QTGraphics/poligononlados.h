@@ -17,6 +17,13 @@ public:
 
 protected:
      void paintEvent(QPaintEvent *e);
+     void drawPoligono(QPainter &painter, int lados, int radio);
+
+private:
+    Ui::poligononlados *ui;
+    bool draw = false;
+    double centroX, centroY;
+    QVector<QTransform> qVecTrans;
 
 private slots:
      void on_pushButton_clicked();
@@ -32,9 +39,6 @@ private slots:
      void on_pushButton_7_clicked();
 
      void on_pushButton_6_clicked();
-
-private:
-    Ui::poligononlados *ui;
 };
 
 #endif // POLIGONONLADOS_H
