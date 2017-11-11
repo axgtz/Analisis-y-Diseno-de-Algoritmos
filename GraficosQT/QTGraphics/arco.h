@@ -1,13 +1,13 @@
 #ifndef ARCO_H
 #define ARCO_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class arco;
 }
 
-class arco : public QWidget
+class arco : public QDialog
 {
     Q_OBJECT
 
