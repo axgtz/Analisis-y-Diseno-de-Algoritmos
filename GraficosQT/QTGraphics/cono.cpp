@@ -29,26 +29,42 @@ void cono::paintEvent(QPaintEvent *e){
     pointPen.setWidth(3);
     painter.setPen(pointPen);
     if (draw){
-        for(int i=0; i<qVecTrans.size(); ++i){
-            painter.setTransform(qVecTrans[i],true);
-            drawCono(painter);
+        QString h = ui->boxAltura->toPlainText();
+        if(!h.isEmpty()) {
+            altura = h.toInt();
+            for(int i=0; i<qVecTrans.size(); ++i){
+                painter.setTransform(qVecTrans[i],true);
+                drawCono(painter,altura);
+            }
+        }else {
+            QMessageBox msgBox;
+            msgBox.setText("Favor de elegir altura del cono");
+            msgBox.exec();
         }
     }
 }
 
-void cono::drawCono(QPainter &painter){
-
+void cono::drawCono(QPainter &painter, int altura){
+    painter.drawEllipse(-50,-25,100,50);
+    painter.drawLine(0,altura,50,0);
+    painter.drawLine(0,altura,-50,0);
 }
 
 void cono::on_pushButton_clicked()
 {
-    //Dibujar
     qVecTrans.clear();
-    QTransform centro;
-    centro.translate(centroX,centroY);
-    qVecTrans.push_back(centro);
-    draw = !draw;
-    update();
+    QString h = ui->boxAltura->toPlainText();
+     if(!h.isEmpty()) {
+       QTransform centro;
+       centro.translate(centroX,centroY);
+       qVecTrans.push_back(centro);
+       draw = !draw;
+     } else {
+       QMessageBox msgBox;
+       msgBox.setText("Favor de elegir altura");
+       msgBox.exec();
+     }
+     update();
 }
 
 void cono::on_pushButton_2_clicked()

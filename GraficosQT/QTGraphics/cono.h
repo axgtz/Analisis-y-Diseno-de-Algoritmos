@@ -17,11 +17,12 @@ public:
     ~cono();
 protected:
      void paintEvent(QPaintEvent *e);
-     void drawCono(QPainter &painter);
+     void drawCono(QPainter &painter, int altura);
 
 private:
     Ui::cono *ui;
     bool draw = false;
+    int altura;
     double centroX, centroY;
     QVector<QTransform> qVecTrans;
 private slots:

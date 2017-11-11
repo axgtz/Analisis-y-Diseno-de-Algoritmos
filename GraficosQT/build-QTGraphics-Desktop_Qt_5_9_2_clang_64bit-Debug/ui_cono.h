@@ -25,7 +25,6 @@ class Ui_cono
 {
 public:
     QPushButton *pushButton_5;
-    QLabel *label_2;
     QPushButton *pushButton;
     QPushButton *pushButton_4;
     QPushButton *pushButton_7;
@@ -36,14 +35,13 @@ public:
     QLabel *label_9;
     QLabel *label_10;
     QLabel *label_3;
-    QTextEdit *boxAngulo;
     QLabel *label_6;
     QLabel *label;
     QPushButton *pushButton_2;
     QPushButton *pushButton_6;
     QLabel *label_8;
     QTextEdit *boxGrados;
-    QTextEdit *boxRadio;
+    QTextEdit *boxAltura;
     QTextEdit *boxYinicio;
     QLabel *label_7;
 
@@ -55,9 +53,6 @@ public:
         pushButton_5 = new QPushButton(cono);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(240, 70, 151, 32));
-        label_2 = new QLabel(cono);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 80, 51, 16));
         pushButton = new QPushButton(cono);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setEnabled(true);
@@ -89,9 +84,6 @@ public:
         label_3 = new QLabel(cono);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(10, 40, 41, 16));
-        boxAngulo = new QTextEdit(cono);
-        boxAngulo->setObjectName(QStringLiteral("boxAngulo"));
-        boxAngulo->setGeometry(QRect(60, 80, 41, 21));
         label_6 = new QLabel(cono);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(400, 30, 91, 20));
@@ -110,9 +102,9 @@ public:
         boxGrados = new QTextEdit(cono);
         boxGrados->setObjectName(QStringLiteral("boxGrados"));
         boxGrados->setGeometry(QRect(760, 40, 41, 21));
-        boxRadio = new QTextEdit(cono);
-        boxRadio->setObjectName(QStringLiteral("boxRadio"));
-        boxRadio->setGeometry(QRect(50, 40, 41, 21));
+        boxAltura = new QTextEdit(cono);
+        boxAltura->setObjectName(QStringLiteral("boxAltura"));
+        boxAltura->setGeometry(QRect(50, 40, 41, 21));
         boxYinicio = new QTextEdit(cono);
         boxYinicio->setObjectName(QStringLiteral("boxYinicio"));
         boxYinicio->setGeometry(QRect(460, 30, 41, 21));
@@ -129,7 +121,6 @@ public:
     {
         cono->setWindowTitle(QApplication::translate("cono", "Dialog", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("cono", "Zoom Out", Q_NULLPTR));
-        label_2->setText(QApplication::translate("cono", "Angulo:", Q_NULLPTR));
         pushButton->setText(QApplication::translate("cono", "Dibujar", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("cono", "Zoom In", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("cono", "Reflexion Vertical", Q_NULLPTR));
@@ -138,7 +129,7 @@ public:
         label_4->setText(QApplication::translate("cono", "Horizontal:", Q_NULLPTR));
         label_9->setText(QApplication::translate("cono", "Reflexiones", Q_NULLPTR));
         label_10->setText(QApplication::translate("cono", "Rotacion", Q_NULLPTR));
-        label_3->setText(QApplication::translate("cono", "Radio:", Q_NULLPTR));
+        label_3->setText(QApplication::translate("cono", "Altura", Q_NULLPTR));
         label_6->setText(QApplication::translate("cono", "Vertical:", Q_NULLPTR));
         label->setText(QApplication::translate("cono", "Cono", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("cono", "Trasladar", Q_NULLPTR));
