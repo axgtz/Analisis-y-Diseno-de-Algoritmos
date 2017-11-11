@@ -2,7 +2,7 @@
 #include "ui_arco.h"
 
 arco::arco(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::arco)
 {
     ui->setupUi(this);

@@ -1,22 +1,22 @@
 #ifndef POLIGONONLADOS_H
 #define POLIGONONLADOS_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
-class poligonoNLados;
+class poligononlados;
 }
 
-class poligonoNLados : public QWidget
+class poligononlados : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit poligonoNLados(QWidget *parent = 0);
-    ~poligonoNLados();
+    explicit poligononlados(QWidget *parent = 0);
+    ~poligononlados();
 
 private:
-    Ui::poligonoNLados *ui;
+    Ui::poligononlados *ui;
 };
 
 #endif // POLIGONONLADOS_H

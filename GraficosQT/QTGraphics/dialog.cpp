@@ -24,7 +24,7 @@ void Dialog::on_pushButton_clicked()
 void Dialog::on_pushButton_2_clicked()
 {
     //Poligono
-    poligonoNLados pN;
+    poligononlados pN;
     pN.setModal(true);
     pN.exec();
 }
@@ -40,7 +40,7 @@ void Dialog::on_pushButton_3_clicked()
 void Dialog::on_pushButton_4_clicked()
 {
     //Cubo
-    cubo c;
+    cubo cu;
     cu.setModal(true);
     cu.exec();
 }
@@ -48,7 +48,7 @@ void Dialog::on_pushButton_4_clicked()
 void Dialog::on_pushButton_5_clicked()
 {
     //Prisma Base Rect
-    prismaBaseRect pbr;
+    prismabaserect pbr;
     pbr.setModal(true);
     pbr.exec();
 }
@@ -56,7 +56,7 @@ void Dialog::on_pushButton_5_clicked()
 void Dialog::on_pushButton_6_clicked()
 {
     //Prisma Base Triangular
-    prismaBaseTrian pbt;
+    prismabasetrian pbt;
     pbt.setModal(true);
     pbt.exec();
 }

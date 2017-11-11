@@ -26,29 +26,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         dialog.cpp \
-    poligononlados.cpp \
+    arco.cpp \
     cubo.cpp \
     cono.cpp \
+    poligononlados.cpp \
     prismabaserect.cpp \
-    prismabasetrian.cpp \
-    arco.cpp \
-    poligononlados.cpp
+    prismabasetrian.cpp
 
 HEADERS += \
         dialog.h \
-    poligononlados.h \
+    arco.h \
     cubo.h \
     cono.h \
+    poligononlados.h \
     prismabaserect.h \
-    prismabasetrian.h \
-    arco.h \
-    poligononlados.h
+    prismabasetrian.h
 
 FORMS += \
         dialog.ui \
+    arco.ui \
     cubo.ui \
     cono.ui \
+    poligononlados.ui \
     prismabaserect.ui \
-    prismabasetrian.ui \
-    arco.ui \
-    poligononlados.ui
+    prismabasetrian.ui

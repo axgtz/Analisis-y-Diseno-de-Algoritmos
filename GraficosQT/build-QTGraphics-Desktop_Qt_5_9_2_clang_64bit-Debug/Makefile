@@ -52,35 +52,33 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../QTGraphics/main.cpp \
 		../QTGraphics/dialog.cpp \
-		../QTGraphics/poligononlados.cpp \
+		../QTGraphics/arco.cpp \
 		../QTGraphics/cubo.cpp \
 		../QTGraphics/cono.cpp \
+		../QTGraphics/poligononlados.cpp \
 		../QTGraphics/prismabaserect.cpp \
-		../QTGraphics/prismabasetrian.cpp \
-		../QTGraphics/arco.cpp \
-		../QTGraphics/poligononlados.cpp moc_dialog.cpp \
-		moc_poligononlados.cpp \
+		../QTGraphics/prismabasetrian.cpp moc_dialog.cpp \
+		moc_arco.cpp \
 		moc_cubo.cpp \
 		moc_cono.cpp \
+		moc_poligononlados.cpp \
 		moc_prismabaserect.cpp \
-		moc_prismabasetrian.cpp \
-		moc_arco.cpp
+		moc_prismabasetrian.cpp
 OBJECTS       = main.o \
 		dialog.o \
-		poligononlados.o \
+		arco.o \
 		cubo.o \
 		cono.o \
+		poligononlados.o \
 		prismabaserect.o \
 		prismabasetrian.o \
-		arco.o \
-		poligononlados.o \
 		moc_dialog.o \
-		moc_poligononlados.o \
+		moc_arco.o \
 		moc_cubo.o \
 		moc_cono.o \
+		moc_poligononlados.o \
 		moc_prismabaserect.o \
-		moc_prismabasetrian.o \
-		moc_arco.o
+		moc_prismabasetrian.o
 DIST          = ../../../../Qt/5.9.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.9.2/clang_64/mkspecs/qdevice.pri \
 		../../../../Qt/5.9.2/clang_64/mkspecs/features/device_config.prf \
@@ -267,21 +265,19 @@ DIST          = ../../../../Qt/5.9.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.9.2/clang_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.9.2/clang_64/mkspecs/features/lex.prf \
 		../QTGraphics/QTGraphics.pro ../QTGraphics/dialog.h \
-		../QTGraphics/poligononlados.h \
+		../QTGraphics/arco.h \
 		../QTGraphics/cubo.h \
 		../QTGraphics/cono.h \
+		../QTGraphics/poligononlados.h \
 		../QTGraphics/prismabaserect.h \
-		../QTGraphics/prismabasetrian.h \
-		../QTGraphics/arco.h \
-		../QTGraphics/poligononlados.h ../QTGraphics/main.cpp \
+		../QTGraphics/prismabasetrian.h ../QTGraphics/main.cpp \
 		../QTGraphics/dialog.cpp \
-		../QTGraphics/poligononlados.cpp \
+		../QTGraphics/arco.cpp \
 		../QTGraphics/cubo.cpp \
 		../QTGraphics/cono.cpp \
+		../QTGraphics/poligononlados.cpp \
 		../QTGraphics/prismabaserect.cpp \
-		../QTGraphics/prismabasetrian.cpp \
-		../QTGraphics/arco.cpp \
-		../QTGraphics/poligononlados.cpp
+		../QTGraphics/prismabasetrian.cpp
 QMAKE_TARGET  = QTGraphics
 DESTDIR       = 
 TARGET        = QTGraphics.app/Contents/MacOS/QTGraphics
@@ -295,7 +291,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET): ui_dialog.h ui_cubo.h ui_cono.h ui_prismabaserect.h ui_prismabasetrian.h ui_arco.h ui_poligononlados.h $(OBJECTS)  
+$(TARGET): ui_dialog.h ui_arco.h ui_cubo.h ui_cono.h ui_poligononlados.h ui_prismabaserect.h ui_prismabasetrian.h $(OBJECTS)  
 	@test -d QTGraphics.app/Contents/MacOS/ || mkdir -p QTGraphics.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -708,9 +704,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.9.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../QTGraphics/dialog.h ../QTGraphics/poligononlados.h ../QTGraphics/cubo.h ../QTGraphics/cono.h ../QTGraphics/prismabaserect.h ../QTGraphics/prismabasetrian.h ../QTGraphics/arco.h ../QTGraphics/poligononlados.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../QTGraphics/main.cpp ../QTGraphics/dialog.cpp ../QTGraphics/poligononlados.cpp ../QTGraphics/cubo.cpp ../QTGraphics/cono.cpp ../QTGraphics/prismabaserect.cpp ../QTGraphics/prismabasetrian.cpp ../QTGraphics/arco.cpp ../QTGraphics/poligononlados.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../QTGraphics/dialog.ui ../QTGraphics/cubo.ui ../QTGraphics/cono.ui ../QTGraphics/prismabaserect.ui ../QTGraphics/prismabasetrian.ui ../QTGraphics/arco.ui ../QTGraphics/poligononlados.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../QTGraphics/dialog.h ../QTGraphics/arco.h ../QTGraphics/cubo.h ../QTGraphics/cono.h ../QTGraphics/poligononlados.h ../QTGraphics/prismabaserect.h ../QTGraphics/prismabasetrian.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../QTGraphics/main.cpp ../QTGraphics/dialog.cpp ../QTGraphics/arco.cpp ../QTGraphics/cubo.cpp ../QTGraphics/cono.cpp ../QTGraphics/poligononlados.cpp ../QTGraphics/prismabaserect.cpp ../QTGraphics/prismabasetrian.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../QTGraphics/dialog.ui ../QTGraphics/arco.ui ../QTGraphics/cubo.ui ../QTGraphics/cono.ui ../QTGraphics/poligononlados.ui ../QTGraphics/prismabaserect.ui ../QTGraphics/prismabasetrian.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -742,14 +738,12 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../../Qt/5.9.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h ../../../../Qt/5.9.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_dialog.cpp moc_poligononlados.cpp moc_cubo.cpp moc_cono.cpp moc_prismabaserect.cpp moc_prismabasetrian.cpp moc_arco.cpp moc_poligononlados.cpp
+compiler_moc_header_make_all: moc_dialog.cpp moc_arco.cpp moc_cubo.cpp moc_cono.cpp moc_poligononlados.cpp moc_prismabaserect.cpp moc_prismabasetrian.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_dialog.cpp moc_poligononlados.cpp moc_cubo.cpp moc_cono.cpp moc_prismabaserect.cpp moc_prismabasetrian.cpp moc_arco.cpp moc_poligononlados.cpp
+	-$(DEL_FILE) moc_dialog.cpp moc_arco.cpp moc_cubo.cpp moc_cono.cpp moc_poligononlados.cpp moc_prismabaserect.cpp moc_prismabasetrian.cpp
 moc_dialog.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../QTGraphics/arco.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../QTGraphics/cono.h \
 		../QTGraphics/cubo.h \
 		../QTGraphics/poligononlados.h \
@@ -760,63 +754,60 @@ moc_dialog.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QD
 		../../../../Qt/5.9.2/clang_64/bin/moc
 	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/dialog.h -o moc_dialog.cpp
 
-moc_poligononlados.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../QTGraphics/poligononlados.h \
-		moc_predefs.h \
-		../../../../Qt/5.9.2/clang_64/bin/moc
-	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/poligononlados.h -o moc_poligononlados.cpp
-
-moc_cubo.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../QTGraphics/cubo.h \
-		moc_predefs.h \
-		../../../../Qt/5.9.2/clang_64/bin/moc
-	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/cubo.h -o moc_cubo.cpp
-
-moc_cono.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../QTGraphics/cono.h \
-		moc_predefs.h \
-		../../../../Qt/5.9.2/clang_64/bin/moc
-	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/cono.h -o moc_cono.cpp
-
-moc_prismabaserect.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../QTGraphics/prismabaserect.h \
-		moc_predefs.h \
-		../../../../Qt/5.9.2/clang_64/bin/moc
-	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/prismabaserect.h -o moc_prismabaserect.cpp
-
-moc_prismabasetrian.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../QTGraphics/prismabasetrian.h \
-		moc_predefs.h \
-		../../../../Qt/5.9.2/clang_64/bin/moc
-	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/prismabasetrian.h -o moc_prismabasetrian.cpp
-
-moc_arco.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+moc_arco.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../QTGraphics/arco.h \
 		moc_predefs.h \
 		../../../../Qt/5.9.2/clang_64/bin/moc
 	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/arco.h -o moc_arco.cpp
 
-moc_poligononlados.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+moc_cubo.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../QTGraphics/cubo.h \
+		moc_predefs.h \
+		../../../../Qt/5.9.2/clang_64/bin/moc
+	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/cubo.h -o moc_cubo.cpp
+
+moc_cono.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../QTGraphics/cono.h \
+		moc_predefs.h \
+		../../../../Qt/5.9.2/clang_64/bin/moc
+	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/cono.h -o moc_cono.cpp
+
+moc_poligononlados.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../QTGraphics/poligononlados.h \
 		moc_predefs.h \
 		../../../../Qt/5.9.2/clang_64/bin/moc
 	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/poligononlados.h -o moc_poligononlados.cpp
 
+moc_prismabaserect.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../QTGraphics/prismabaserect.h \
+		moc_predefs.h \
+		../../../../Qt/5.9.2/clang_64/bin/moc
+	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/prismabaserect.h -o moc_prismabaserect.cpp
+
+moc_prismabasetrian.cpp: ../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../QTGraphics/prismabasetrian.h \
+		moc_predefs.h \
+		../../../../Qt/5.9.2/clang_64/bin/moc
+	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/gutz/Documents/Qt/5.9.2/clang_64/mkspecs/macx-clang -I/Users/gutz/Documents/GitHub/Analisis-y-Diseno-de-Algoritmos/GraficosQT/QTGraphics -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/gutz/Documents/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/gutz/Documents/Qt/5.9.2/clang_64/lib ../QTGraphics/prismabasetrian.h -o moc_prismabasetrian.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_dialog.h ui_cubo.h ui_cono.h ui_prismabaserect.h ui_prismabasetrian.h ui_arco.h ui_poligononlados.h
+compiler_uic_make_all: ui_dialog.h ui_arco.h ui_cubo.h ui_cono.h ui_poligononlados.h ui_prismabaserect.h ui_prismabasetrian.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_dialog.h ui_cubo.h ui_cono.h ui_prismabaserect.h ui_prismabasetrian.h ui_arco.h ui_poligononlados.h
+	-$(DEL_FILE) ui_dialog.h ui_arco.h ui_cubo.h ui_cono.h ui_poligononlados.h ui_prismabaserect.h ui_prismabasetrian.h
 ui_dialog.h: ../QTGraphics/dialog.ui \
 		../../../../Qt/5.9.2/clang_64/bin/uic
 	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/dialog.ui -o ui_dialog.h
+
+ui_arco.h: ../QTGraphics/arco.ui \
+		../../../../Qt/5.9.2/clang_64/bin/uic
+	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/arco.ui -o ui_arco.h
 
 ui_cubo.h: ../QTGraphics/cubo.ui \
 		../../../../Qt/5.9.2/clang_64/bin/uic
@@ -826,6 +817,10 @@ ui_cono.h: ../QTGraphics/cono.ui \
 		../../../../Qt/5.9.2/clang_64/bin/uic
 	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/cono.ui -o ui_cono.h
 
+ui_poligononlados.h: ../QTGraphics/poligononlados.ui \
+		../../../../Qt/5.9.2/clang_64/bin/uic
+	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/poligononlados.ui -o ui_poligononlados.h
+
 ui_prismabaserect.h: ../QTGraphics/prismabaserect.ui \
 		../../../../Qt/5.9.2/clang_64/bin/uic
 	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/prismabaserect.ui -o ui_prismabaserect.h
@@ -833,14 +828,6 @@ ui_prismabaserect.h: ../QTGraphics/prismabaserect.ui \
 ui_prismabasetrian.h: ../QTGraphics/prismabasetrian.ui \
 		../../../../Qt/5.9.2/clang_64/bin/uic
 	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/prismabasetrian.ui -o ui_prismabasetrian.h
-
-ui_arco.h: ../QTGraphics/arco.ui \
-		../../../../Qt/5.9.2/clang_64/bin/uic
-	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/arco.ui -o ui_arco.h
-
-ui_poligononlados.h: ../QTGraphics/poligononlados.ui \
-		../../../../Qt/5.9.2/clang_64/bin/uic
-	/Users/gutz/Documents/Qt/5.9.2/clang_64/bin/uic ../QTGraphics/poligononlados.ui -o ui_poligononlados.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -858,8 +845,6 @@ main.o: ../QTGraphics/main.cpp ../QTGraphics/dialog.h \
 		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../QTGraphics/arco.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../QTGraphics/cono.h \
 		../QTGraphics/cubo.h \
 		../QTGraphics/poligononlados.h \
@@ -873,8 +858,6 @@ dialog.o: ../QTGraphics/dialog.cpp ../QTGraphics/dialog.h \
 		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../QTGraphics/arco.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../QTGraphics/cono.h \
 		../QTGraphics/cubo.h \
 		../QTGraphics/poligononlados.h \
@@ -883,53 +866,47 @@ dialog.o: ../QTGraphics/dialog.cpp ../QTGraphics/dialog.h \
 		ui_dialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialog.o ../QTGraphics/dialog.cpp
 
-poligononlados.o: ../QTGraphics/poligononlados.cpp ../QTGraphics/poligononlados.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_poligononlados.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o poligononlados.o ../QTGraphics/poligononlados.cpp
+arco.o: ../QTGraphics/arco.cpp ../QTGraphics/arco.h \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_arco.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arco.o ../QTGraphics/arco.cpp
 
 cubo.o: ../QTGraphics/cubo.cpp ../QTGraphics/cubo.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		ui_cubo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cubo.o ../QTGraphics/cubo.cpp
 
 cono.o: ../QTGraphics/cono.cpp ../QTGraphics/cono.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		ui_cono.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cono.o ../QTGraphics/cono.cpp
 
+poligononlados.o: ../QTGraphics/poligononlados.cpp ../QTGraphics/poligononlados.h \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_poligononlados.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o poligononlados.o ../QTGraphics/poligononlados.cpp
+
 prismabaserect.o: ../QTGraphics/prismabaserect.cpp ../QTGraphics/prismabaserect.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		ui_prismabaserect.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prismabaserect.o ../QTGraphics/prismabaserect.cpp
 
 prismabasetrian.o: ../QTGraphics/prismabasetrian.cpp ../QTGraphics/prismabasetrian.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		ui_prismabasetrian.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prismabasetrian.o ../QTGraphics/prismabasetrian.cpp
-
-arco.o: ../QTGraphics/arco.cpp ../QTGraphics/arco.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_arco.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arco.o ../QTGraphics/arco.cpp
-
-poligononlados.o: ../QTGraphics/poligononlados.cpp ../QTGraphics/poligononlados.h \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_poligononlados.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o poligononlados.o ../QTGraphics/poligononlados.cpp
 
 moc_dialog.o: moc_dialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialog.o moc_dialog.cpp
 
-moc_poligononlados.o: moc_poligononlados.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_poligononlados.o moc_poligononlados.cpp
+moc_arco.o: moc_arco.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_arco.o moc_arco.cpp
 
 moc_cubo.o: moc_cubo.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cubo.o moc_cubo.cpp
@@ -937,14 +914,14 @@ moc_cubo.o: moc_cubo.cpp
 moc_cono.o: moc_cono.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cono.o moc_cono.cpp
 
+moc_poligononlados.o: moc_poligononlados.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_poligononlados.o moc_poligononlados.cpp
+
 moc_prismabaserect.o: moc_prismabaserect.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_prismabaserect.o moc_prismabaserect.cpp
 
 moc_prismabasetrian.o: moc_prismabasetrian.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_prismabasetrian.o moc_prismabasetrian.cpp
-
-moc_arco.o: moc_arco.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_arco.o moc_arco.cpp
 
 ####### Install
 

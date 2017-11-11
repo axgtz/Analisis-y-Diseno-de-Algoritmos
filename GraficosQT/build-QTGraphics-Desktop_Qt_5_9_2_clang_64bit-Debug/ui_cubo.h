@@ -13,9 +13,9 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -24,23 +24,23 @@ class Ui_cubo
 public:
     QLabel *label;
 
-    void setupUi(QWidget *cubo)
+    void setupUi(QDialog *cubo)
     {
         if (cubo->objectName().isEmpty())
             cubo->setObjectName(QStringLiteral("cubo"));
-        cubo->resize(635, 426);
+        cubo->resize(400, 300);
         label = new QLabel(cubo);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 10, 60, 16));
+        label->setGeometry(QRect(10, 10, 141, 16));
 
         retranslateUi(cubo);
 
         QMetaObject::connectSlotsByName(cubo);
     } // setupUi
 
-    void retranslateUi(QWidget *cubo)
+    void retranslateUi(QDialog *cubo)
     {
-        cubo->setWindowTitle(QApplication::translate("cubo", "Form", Q_NULLPTR));
+        cubo->setWindowTitle(QApplication::translate("cubo", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("cubo", "Cubo", Q_NULLPTR));
     } // retranslateUi
 

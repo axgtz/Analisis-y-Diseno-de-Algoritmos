@@ -1,14 +1,14 @@
 #include "prismabasetrian.h"
 #include "ui_prismabasetrian.h"
 
-prismaBaseTrian::prismaBaseTrian(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::prismaBaseTrian)
+prismabasetrian::prismabasetrian(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::prismabasetrian)
 {
     ui->setupUi(this);
 }
 
-prismaBaseTrian::~prismaBaseTrian()
+prismabasetrian::~prismabasetrian()
 {
     delete ui;
 }

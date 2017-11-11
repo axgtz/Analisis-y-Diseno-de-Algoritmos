@@ -2,7 +2,7 @@
 #include "ui_cubo.h"
 
 cubo::cubo(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::cubo)
 {
     ui->setupUi(this);

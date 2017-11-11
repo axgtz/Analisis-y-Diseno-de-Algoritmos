@@ -1,14 +1,14 @@
 #include "prismabaserect.h"
 #include "ui_prismabaserect.h"
 
-prismaBaseRect::prismaBaseRect(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::prismaBaseRect)
+prismabaserect::prismabaserect(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::prismabaserect)
 {
     ui->setupUi(this);
 }
 
-prismaBaseRect::~prismaBaseRect()
+prismabaserect::~prismabaserect()
 {
     delete ui;
 }

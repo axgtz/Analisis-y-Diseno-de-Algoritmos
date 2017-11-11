@@ -13,9 +13,9 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -24,23 +24,23 @@ class Ui_arco
 public:
     QLabel *label;
 
-    void setupUi(QWidget *arco)
+    void setupUi(QDialog *arco)
     {
         if (arco->objectName().isEmpty())
             arco->setObjectName(QStringLiteral("arco"));
-        arco->resize(664, 439);
+        arco->resize(635, 436);
         label = new QLabel(arco);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 60, 16));
+        label->setGeometry(QRect(10, 0, 60, 16));
 
         retranslateUi(arco);
 
         QMetaObject::connectSlotsByName(arco);
     } // setupUi
 
-    void retranslateUi(QWidget *arco)
+    void retranslateUi(QDialog *arco)
     {
-        arco->setWindowTitle(QApplication::translate("arco", "Form", Q_NULLPTR));
+        arco->setWindowTitle(QApplication::translate("arco", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("arco", "Arco", Q_NULLPTR));
     } // retranslateUi
 

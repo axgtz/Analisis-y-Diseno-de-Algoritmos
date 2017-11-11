@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>poligonoNLados</class>
- <widget class="QWidget" name="poligonoNLados">
+ <class>poligononlados</class>
+ <widget class="QDialog" name="poligononlados">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>658</width>
-    <height>432</height>
+    <width>725</width>
+    <height>484</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>10</y>
-     <width>121</width>
+     <width>161</width>
      <height>16</height>
     </rect>
    </property>

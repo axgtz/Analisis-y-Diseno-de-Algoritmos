@@ -13,41 +13,41 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_prismaBaseTrian
+class Ui_prismabasetrian
 {
 public:
     QLabel *label;
 
-    void setupUi(QWidget *prismaBaseTrian)
+    void setupUi(QDialog *prismabasetrian)
     {
-        if (prismaBaseTrian->objectName().isEmpty())
-            prismaBaseTrian->setObjectName(QStringLiteral("prismaBaseTrian"));
-        prismaBaseTrian->resize(658, 482);
-        label = new QLabel(prismaBaseTrian);
+        if (prismabasetrian->objectName().isEmpty())
+            prismabasetrian->setObjectName(QStringLiteral("prismabasetrian"));
+        prismabasetrian->resize(400, 300);
+        label = new QLabel(prismabasetrian);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 20, 161, 16));
+        label->setGeometry(QRect(20, 10, 191, 16));
 
-        retranslateUi(prismaBaseTrian);
+        retranslateUi(prismabasetrian);
 
-        QMetaObject::connectSlotsByName(prismaBaseTrian);
+        QMetaObject::connectSlotsByName(prismabasetrian);
     } // setupUi
 
-    void retranslateUi(QWidget *prismaBaseTrian)
+    void retranslateUi(QDialog *prismabasetrian)
     {
-        prismaBaseTrian->setWindowTitle(QApplication::translate("prismaBaseTrian", "Form", Q_NULLPTR));
-        label->setText(QApplication::translate("prismaBaseTrian", "Prisma Base Triangular", Q_NULLPTR));
+        prismabasetrian->setWindowTitle(QApplication::translate("prismabasetrian", "Dialog", Q_NULLPTR));
+        label->setText(QApplication::translate("prismabasetrian", "Prisma Base Triangular", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class prismaBaseTrian: public Ui_prismaBaseTrian {};
+    class prismabasetrian: public Ui_prismabasetrian {};
 } // namespace Ui
 
 QT_END_NAMESPACE

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>prismaBaseRect</class>
- <widget class="QWidget" name="prismaBaseRect">
+ <class>prismabaserect</class>
+ <widget class="QDialog" name="prismabaserect">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>647</width>
-    <height>441</height>
+    <width>721</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
-     <width>161</width>
+     <y>10</y>
+     <width>221</width>
      <height>16</height>
     </rect>
    </property>

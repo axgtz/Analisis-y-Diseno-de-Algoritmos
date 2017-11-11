@@ -1,13 +1,13 @@
 #ifndef CONO_H
 #define CONO_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class cono;
 }
 
-class cono : public QWidget
+class cono : public QDialog
 {
     Q_OBJECT
 

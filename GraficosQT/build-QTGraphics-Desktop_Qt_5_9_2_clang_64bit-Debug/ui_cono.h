@@ -13,9 +13,9 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -24,11 +24,11 @@ class Ui_cono
 public:
     QLabel *label;
 
-    void setupUi(QWidget *cono)
+    void setupUi(QDialog *cono)
     {
         if (cono->objectName().isEmpty())
             cono->setObjectName(QStringLiteral("cono"));
-        cono->resize(626, 412);
+        cono->resize(400, 300);
         label = new QLabel(cono);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(10, 10, 60, 16));
@@ -38,9 +38,9 @@ public:
         QMetaObject::connectSlotsByName(cono);
     } // setupUi
 
-    void retranslateUi(QWidget *cono)
+    void retranslateUi(QDialog *cono)
     {
-        cono->setWindowTitle(QApplication::translate("cono", "Form", Q_NULLPTR));
+        cono->setWindowTitle(QApplication::translate("cono", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("cono", "Cono", Q_NULLPTR));
     } // retranslateUi
 

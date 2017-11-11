@@ -13,41 +13,41 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_poligonoNLados
+class Ui_poligononlados
 {
 public:
     QLabel *label;
 
-    void setupUi(QWidget *poligonoNLados)
+    void setupUi(QDialog *poligononlados)
     {
-        if (poligonoNLados->objectName().isEmpty())
-            poligonoNLados->setObjectName(QStringLiteral("poligonoNLados"));
-        poligonoNLados->resize(658, 432);
-        label = new QLabel(poligonoNLados);
+        if (poligononlados->objectName().isEmpty())
+            poligononlados->setObjectName(QStringLiteral("poligononlados"));
+        poligononlados->resize(725, 484);
+        label = new QLabel(poligononlados);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 121, 16));
+        label->setGeometry(QRect(20, 10, 161, 16));
 
-        retranslateUi(poligonoNLados);
+        retranslateUi(poligononlados);
 
-        QMetaObject::connectSlotsByName(poligonoNLados);
+        QMetaObject::connectSlotsByName(poligononlados);
     } // setupUi
 
-    void retranslateUi(QWidget *poligonoNLados)
+    void retranslateUi(QDialog *poligononlados)
     {
-        poligonoNLados->setWindowTitle(QApplication::translate("poligonoNLados", "Form", Q_NULLPTR));
-        label->setText(QApplication::translate("poligonoNLados", "Poligono N Lados", Q_NULLPTR));
+        poligononlados->setWindowTitle(QApplication::translate("poligononlados", "Dialog", Q_NULLPTR));
+        label->setText(QApplication::translate("poligononlados", "Poligono N Lados", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class poligonoNLados: public Ui_poligonoNLados {};
+    class poligononlados: public Ui_poligononlados {};
 } // namespace Ui
 
 QT_END_NAMESPACE

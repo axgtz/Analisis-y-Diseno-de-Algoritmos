@@ -13,41 +13,41 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_prismaBaseRect
+class Ui_prismabaserect
 {
 public:
     QLabel *label;
 
-    void setupUi(QWidget *prismaBaseRect)
+    void setupUi(QDialog *prismabaserect)
     {
-        if (prismaBaseRect->objectName().isEmpty())
-            prismaBaseRect->setObjectName(QStringLiteral("prismaBaseRect"));
-        prismaBaseRect->resize(647, 441);
-        label = new QLabel(prismaBaseRect);
+        if (prismabaserect->objectName().isEmpty())
+            prismabaserect->setObjectName(QStringLiteral("prismabaserect"));
+        prismabaserect->resize(721, 480);
+        label = new QLabel(prismabaserect);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 20, 161, 16));
+        label->setGeometry(QRect(20, 10, 221, 16));
 
-        retranslateUi(prismaBaseRect);
+        retranslateUi(prismabaserect);
 
-        QMetaObject::connectSlotsByName(prismaBaseRect);
+        QMetaObject::connectSlotsByName(prismabaserect);
     } // setupUi
 
-    void retranslateUi(QWidget *prismaBaseRect)
+    void retranslateUi(QDialog *prismabaserect)
     {
-        prismaBaseRect->setWindowTitle(QApplication::translate("prismaBaseRect", "Form", Q_NULLPTR));
-        label->setText(QApplication::translate("prismaBaseRect", "Prisma Base Rectangular", Q_NULLPTR));
+        prismabaserect->setWindowTitle(QApplication::translate("prismabaserect", "Dialog", Q_NULLPTR));
+        label->setText(QApplication::translate("prismabaserect", "Prisma Base Rectangular", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class prismaBaseRect: public Ui_prismaBaseRect {};
+    class prismabaserect: public Ui_prismabaserect {};
 } // namespace Ui
 
 QT_END_NAMESPACE

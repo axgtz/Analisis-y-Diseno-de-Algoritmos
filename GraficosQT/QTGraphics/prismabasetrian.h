@@ -1,22 +1,22 @@
 #ifndef PRISMABASETRIAN_H
 #define PRISMABASETRIAN_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
-class prismaBaseTrian;
+class prismabasetrian;
 }
 
-class prismaBaseTrian : public QWidget
+class prismabasetrian : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit prismaBaseTrian(QWidget *parent = 0);
-    ~prismaBaseTrian();
+    explicit prismabasetrian(QWidget *parent = 0);
+    ~prismabasetrian();
 
 private:
-    Ui::prismaBaseTrian *ui;
+    Ui::prismabasetrian *ui;
 };
 
 #endif // PRISMABASETRIAN_H

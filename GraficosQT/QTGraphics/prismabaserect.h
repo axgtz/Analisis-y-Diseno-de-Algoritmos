@@ -1,22 +1,22 @@
 #ifndef PRISMABASERECT_H
 #define PRISMABASERECT_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
-class prismaBaseRect;
+class prismabaserect;
 }
 
-class prismaBaseRect : public QWidget
+class prismabaserect : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit prismaBaseRect(QWidget *parent = 0);
-    ~prismaBaseRect();
+    explicit prismabaserect(QWidget *parent = 0);
+    ~prismabaserect();
 
 private:
-    Ui::prismaBaseRect *ui;
+    Ui::prismabaserect *ui;
 };
 
 #endif // PRISMABASERECT_H

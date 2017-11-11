@@ -1,13 +1,13 @@
 #ifndef CUBO_H
 #define CUBO_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class cubo;
 }
 
-class cubo : public QWidget
+class cubo : public QDialog
 {
     Q_OBJECT
 

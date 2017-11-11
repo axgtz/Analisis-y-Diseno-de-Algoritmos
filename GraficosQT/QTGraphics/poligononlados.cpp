@@ -1,14 +1,14 @@
 #include "poligononlados.h"
 #include "ui_poligononlados.h"
 
-poligonoNLados::poligonoNLados(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::poligonoNLados)
+poligononlados::poligononlados(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::poligononlados)
 {
     ui->setupUi(this);
 }
 
-poligonoNLados::~poligonoNLados()
+poligononlados::~poligononlados()
 {
     delete ui;
 }
