@@ -2,7 +2,8 @@
 #define CONO_H
 
 #include <QDialog>
-
+#include <QtGui>
+#include <QtCore>
 namespace Ui {
 class cono;
 }
@@ -16,7 +17,13 @@ public:
     ~cono();
 protected:
      void paintEvent(QPaintEvent *e);
+     void drawCono(QPainter &painter);
 
+private:
+    Ui::cono *ui;
+    bool draw = false;
+    double centroX, centroY;
+    QVector<QTransform> qVecTrans;
 private slots:
      void on_pushButton_clicked();
 
@@ -32,8 +39,6 @@ private slots:
 
      void on_pushButton_6_clicked();
 
-private:
-    Ui::cono *ui;
 };
 
 #endif // CONO_H

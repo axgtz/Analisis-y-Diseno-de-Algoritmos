@@ -2,6 +2,8 @@
 #define ARCO_H
 
 #include <QDialog>
+#include <QtGui>
+#include <QtCore>
 
 namespace Ui {
 class arco;
@@ -16,6 +18,7 @@ public:
     ~arco();
 protected:
      void paintEvent(QPaintEvent *e);
+     void drawArco(QPainter &painter);
 
 private slots:
      void on_pushButton_clicked();

@@ -2,7 +2,8 @@
 #define PRISMABASETRIAN_H
 
 #include <QDialog>
-
+#include <QtGui>
+#include <QtCore>
 namespace Ui {
 class prismabasetrian;
 }
@@ -17,6 +18,8 @@ public:
 
 protected:
      void paintEvent(QPaintEvent *e);
+     void drawPrismaBaseTrian(QPainter &painter);
+
 
 private slots:
      void on_pushButton_clicked();
@@ -35,6 +38,9 @@ private slots:
 
 private:
     Ui::prismabasetrian *ui;
+    bool draw = false;
+    double centroX, centroY;
+    QVector<QTransform> qVecTrans;
 };
 
 #endif // PRISMABASETRIAN_H

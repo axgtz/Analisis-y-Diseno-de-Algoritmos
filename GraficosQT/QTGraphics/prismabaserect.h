@@ -2,6 +2,8 @@
 #define PRISMABASERECT_H
 
 #include <QDialog>
+#include <QtGui>
+#include <QtCore>
 
 namespace Ui {
 class prismabaserect;
@@ -17,6 +19,7 @@ public:
 
 protected:
      void paintEvent(QPaintEvent *e);
+     void drawPrismaBaseRect(QPainter &painter);
 
 private slots:
      void on_pushButton_clicked();
@@ -35,6 +38,9 @@ private slots:
 
 private:
     Ui::prismabaserect *ui;
+    bool draw = false;
+    double centroX, centroY;
+    QVector<QTransform> qVecTrans;
 };
 
 #endif // PRISMABASERECT_H

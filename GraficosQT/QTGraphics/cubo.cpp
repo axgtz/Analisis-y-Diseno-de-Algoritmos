@@ -9,6 +9,7 @@ cubo::cubo(QWidget *parent) :
     ui(new Ui::cubo)
 {
     ui->setupUi(this);
+    //Volver centro de la pantalla 0,0
     centroX = width()/2;
     centroY = height()/2;
     QTransform centro;
