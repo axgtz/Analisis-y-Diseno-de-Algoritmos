@@ -14,6 +14,7 @@ poligononlados::~poligononlados()
 }
 
 
+void poligononlados::paintEvent(QPaintEvent *e){}
 void poligononlados::on_pushButton_clicked()
 {
     //Dibujar

@@ -13,6 +13,9 @@ prismabasetrian::~prismabasetrian()
     delete ui;
 }
 
+void prismabasetrian::paintEvent(QPaintEvent *e){
+
+}
 
 void prismabasetrian::on_pushButton_clicked()
 {

@@ -69,9 +69,9 @@ void cubo::on_pushButton_2_clicked()
      if(!x.isEmpty() && !y.isEmpty()) {
        int xS = x.toInt();
        int yS = y.toInt();
-       QTransform translate;
-       qVecTrans.translate(xS, yS);
-       transforms.push_back(qVecTrans);
+       QTransform t;
+       t.translate(xS, yS);
+       qVecTrans.push_back(t);
      } else {
        QMessageBox msgBox;
        msgBox.setText("Favor de elegir traslacion");
@@ -102,8 +102,8 @@ void cubo::on_pushButton_3_clicked()
 {
     //Rotar
     QString r = ui->boxGrados->toPlainText();
-      if(!tS.isEmpty()) {
-        int tS = r.toInt();
+      if(!r.isEmpty()) {
+        int rS = r.toInt();
         QTransform r;
         r.rotate(rS);
         qVecTrans.push_back(r);

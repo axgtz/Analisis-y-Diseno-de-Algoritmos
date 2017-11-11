@@ -14,6 +14,10 @@ prismabaserect::~prismabaserect()
 }
 
 
+void prismabaserect::paintEvent(QPaintEvent *e){
+
+}
+
 void prismabaserect::on_pushButton_clicked()
 {
     //Dibujar

@@ -25,7 +25,6 @@ class Ui_cubo
 {
 public:
     QPushButton *pushButton_5;
-    QLabel *label_2;
     QPushButton *pushButton;
     QPushButton *pushButton_4;
     QPushButton *pushButton_7;
@@ -35,15 +34,12 @@ public:
     QLabel *label_4;
     QLabel *label_9;
     QLabel *label_10;
-    QLabel *label_3;
-    QTextEdit *boxAngulo;
     QLabel *label_6;
     QLabel *label_7;
     QPushButton *pushButton_2;
     QPushButton *pushButton_6;
     QLabel *label_8;
     QTextEdit *boxGrados;
-    QTextEdit *boxRadio;
     QTextEdit *boxYinicio;
     QLabel *label_11;
 
@@ -55,13 +51,10 @@ public:
         pushButton_5 = new QPushButton(cubo);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(240, 70, 151, 32));
-        label_2 = new QLabel(cubo);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 80, 51, 16));
         pushButton = new QPushButton(cubo);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setEnabled(true);
-        pushButton->setGeometry(QRect(100, 30, 113, 101));
+        pushButton->setGeometry(QRect(40, 30, 113, 101));
         pushButton_4 = new QPushButton(cubo);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(240, 30, 151, 32));
@@ -86,12 +79,6 @@ public:
         label_10 = new QLabel(cubo);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setGeometry(QRect(710, 10, 81, 20));
-        label_3 = new QLabel(cubo);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(10, 40, 41, 16));
-        boxAngulo = new QTextEdit(cubo);
-        boxAngulo->setObjectName(QStringLiteral("boxAngulo"));
-        boxAngulo->setGeometry(QRect(60, 80, 41, 21));
         label_6 = new QLabel(cubo);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(400, 30, 91, 20));
@@ -110,9 +97,6 @@ public:
         boxGrados = new QTextEdit(cubo);
         boxGrados->setObjectName(QStringLiteral("boxGrados"));
         boxGrados->setGeometry(QRect(760, 40, 41, 21));
-        boxRadio = new QTextEdit(cubo);
-        boxRadio->setObjectName(QStringLiteral("boxRadio"));
-        boxRadio->setGeometry(QRect(50, 40, 41, 21));
         boxYinicio = new QTextEdit(cubo);
         boxYinicio->setObjectName(QStringLiteral("boxYinicio"));
         boxYinicio->setGeometry(QRect(460, 30, 41, 21));
@@ -129,7 +113,6 @@ public:
     {
         cubo->setWindowTitle(QApplication::translate("cubo", "Dialog", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("cubo", "Zoom Out", Q_NULLPTR));
-        label_2->setText(QApplication::translate("cubo", "Angulo:", Q_NULLPTR));
         pushButton->setText(QApplication::translate("cubo", "Dibujar", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("cubo", "Zoom In", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("cubo", "Reflexion Vertical", Q_NULLPTR));
@@ -138,7 +121,6 @@ public:
         label_4->setText(QApplication::translate("cubo", "Horizontal:", Q_NULLPTR));
         label_9->setText(QApplication::translate("cubo", "Reflexiones", Q_NULLPTR));
         label_10->setText(QApplication::translate("cubo", "Rotacion", Q_NULLPTR));
-        label_3->setText(QApplication::translate("cubo", "Radio:", Q_NULLPTR));
         label_6->setText(QApplication::translate("cubo", "Vertical:", Q_NULLPTR));
         label_7->setText(QApplication::translate("cubo", "Cubo", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("cubo", "Trasladar", Q_NULLPTR));

@@ -13,6 +13,10 @@ arco::~arco()
     delete ui;
 }
 
+void arco::paintEvent(QPaintEvent *e){
+
+}
+
 void arco::on_pushButton_clicked()
 {
     //Dibujar

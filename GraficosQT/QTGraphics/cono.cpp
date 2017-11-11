@@ -14,6 +14,8 @@ cono::~cono()
 }
 
 
+void cono::paintEvent(QPaintEvent *e){}
+
 void cono::on_pushButton_clicked()
 {
     //Dibujar
