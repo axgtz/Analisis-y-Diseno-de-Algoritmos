@@ -58,8 +58,8 @@ void arco::drawArco(QPainter &painter){
 
         painter.drawLine(100+x,100+y,100+y,100+x);
         painter.drawLine(100-x,100+y,100+y,100-x);
-        painter.drawLine(100+x,100-y,100-y,100+x);
-        painter.drawLine(100-x,100-y,100-y,100-x);
+        //painter.drawLine(100+x,100-y,100-y,100+x);
+        //painter.drawLine(100-x,100-y,100-y,100-x);
     }
 }
 

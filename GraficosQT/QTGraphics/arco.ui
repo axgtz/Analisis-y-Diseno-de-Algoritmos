@@ -88,16 +88,6 @@
     <string>Dibujar</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="boxAngulo">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>80</y>
-     <width>41</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
@@ -111,19 +101,6 @@
     <string>Zoom In</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>51</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Angulo:</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
@@ -135,19 +112,6 @@
    </property>
    <property name="text">
     <string>Rotar</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>41</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Radio:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
@@ -174,16 +138,6 @@
    </property>
    <property name="text">
     <string>Reflexion Vertical</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="boxRadio">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>40</y>
-     <width>41</width>
-     <height>21</height>
-    </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_5">
