@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QMessageBox>
 #include <math.h>
+
 arco::arco(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::arco)
@@ -55,25 +56,10 @@ void arco::drawArco(QPainter &painter){
         }
         x++;
 
-        int maxx = getmaxx()/2;
-
-        int maxy = getmaxy()/2;
-
-        putpixel(maxx+x,maxy+y,value);
-
-        putpixel(maxx+y,maxy+x,value);
-
-        putpixel(maxx-x,maxy+y,value);
-
-        putpixel(maxx+y,maxy-x,value);
-
-        putpixel(maxx+x,maxy-y,value);
-
-        putpixel(maxx-y,maxy+x,value);
-
-        putpixel(maxx-x,maxy-y,value);
-
-        putpixel(maxx-y,maxy-x,value);
+        painter.drawLine(100+x,100+y,100+y,100+x);
+        painter.drawLine(100-x,100+y,100+y,100-x);
+        painter.drawLine(100+x,100-y,100-y,100+x);
+        painter.drawLine(100-x,100-y,100-y,100-x);
     }
 }
 
