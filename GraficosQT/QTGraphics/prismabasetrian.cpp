@@ -8,6 +8,12 @@ prismabasetrian::prismabasetrian(QWidget *parent) :
     ui(new Ui::prismabasetrian)
 {
     ui->setupUi(this);
+    //Volver centro de la pantalla 0,0
+    centroX = width()/2;
+    centroY = height()/2;
+    QTransform centro;
+    centro.translate(centroX,centroY);
+    qVecTrans.push_back(centro);
 }
 
 prismabasetrian::~prismabasetrian()
