@@ -42,7 +42,7 @@ public:
         label->setGeometry(QRect(170, 250, 121, 16));
         label_2 = new QLabel(Dialog);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(40, 10, 261, 31));
+        label_2->setGeometry(QRect(80, 10, 181, 31));
         pushButton = new QPushButton(Dialog);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(190, 70, 113, 32));
@@ -69,9 +69,9 @@ public:
 
     void retranslateUi(QDialog *Dialog)
     {
-        Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", Q_NULLPTR));
+        Dialog->setWindowTitle(QApplication::translate("Dialog", "Tarea 5", Q_NULLPTR));
         label->setText(QApplication::translate("Dialog", "by: Alejandro Guti", Q_NULLPTR));
-        label_2->setText(QApplication::translate("Dialog", "QT Tarea No. 5. Geometri\314\201a computacional", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Dialog", "QT Geometria computacional", Q_NULLPTR));
         pushButton->setText(QApplication::translate("Dialog", "Arcos", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("Dialog", "Poligono de N Lados", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("Dialog", "Conos", Q_NULLPTR));
