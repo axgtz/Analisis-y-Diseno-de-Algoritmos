@@ -28,7 +28,15 @@ void prismabasetrian::paintEvent(QPaintEvent *e){
     }
 }
 void prismabasetrian::drawPrismaBaseTrian(QPainter &painter){
-
+        painter.drawLine(0,-100,-50,-140);
+        painter.drawLine(0,-100,50,-140);
+        painter.drawLine(-50,-140,50,-140);
+        painter.drawLine(0,0,-50,-40);
+        painter.drawLine(0,0,50,-40);
+        painter.drawLine(-50,-40,50,-40);
+        painter.drawLine(0,-100,0,0);
+        painter.drawLine(-50,-140,-50,-40);
+        painter.drawLine(50,-40,50,-140);
 }
 
 void prismabasetrian::on_pushButton_clicked()

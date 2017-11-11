@@ -26,7 +26,6 @@ class Ui_prismabasetrian
 public:
     QLabel *label;
     QPushButton *pushButton_5;
-    QLabel *label_2;
     QPushButton *pushButton;
     QPushButton *pushButton_4;
     QPushButton *pushButton_7;
@@ -36,14 +35,11 @@ public:
     QLabel *label_4;
     QLabel *label_9;
     QLabel *label_10;
-    QLabel *label_3;
-    QTextEdit *boxAngulo;
     QLabel *label_6;
     QPushButton *pushButton_2;
     QPushButton *pushButton_6;
     QLabel *label_8;
     QTextEdit *boxGrados;
-    QTextEdit *boxRadio;
     QTextEdit *boxYinicio;
     QLabel *label_11;
 
@@ -58,9 +54,6 @@ public:
         pushButton_5 = new QPushButton(prismabasetrian);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(260, 70, 151, 32));
-        label_2 = new QLabel(prismabasetrian);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(30, 80, 51, 16));
         pushButton = new QPushButton(prismabasetrian);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setEnabled(true);
@@ -89,12 +82,6 @@ public:
         label_10 = new QLabel(prismabasetrian);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setGeometry(QRect(730, 10, 81, 20));
-        label_3 = new QLabel(prismabasetrian);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(30, 40, 41, 16));
-        boxAngulo = new QTextEdit(prismabasetrian);
-        boxAngulo->setObjectName(QStringLiteral("boxAngulo"));
-        boxAngulo->setGeometry(QRect(80, 80, 41, 21));
         label_6 = new QLabel(prismabasetrian);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(420, 30, 91, 20));
@@ -110,9 +97,6 @@ public:
         boxGrados = new QTextEdit(prismabasetrian);
         boxGrados->setObjectName(QStringLiteral("boxGrados"));
         boxGrados->setGeometry(QRect(780, 40, 41, 21));
-        boxRadio = new QTextEdit(prismabasetrian);
-        boxRadio->setObjectName(QStringLiteral("boxRadio"));
-        boxRadio->setGeometry(QRect(70, 40, 41, 21));
         boxYinicio = new QTextEdit(prismabasetrian);
         boxYinicio->setObjectName(QStringLiteral("boxYinicio"));
         boxYinicio->setGeometry(QRect(480, 30, 41, 21));
@@ -130,7 +114,6 @@ public:
         prismabasetrian->setWindowTitle(QApplication::translate("prismabasetrian", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("prismabasetrian", "Prisma Base Triangular", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("prismabasetrian", "Zoom Out", Q_NULLPTR));
-        label_2->setText(QApplication::translate("prismabasetrian", "Angulo:", Q_NULLPTR));
         pushButton->setText(QApplication::translate("prismabasetrian", "Dibujar", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("prismabasetrian", "Zoom In", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("prismabasetrian", "Reflexion Vertical", Q_NULLPTR));
@@ -139,7 +122,6 @@ public:
         label_4->setText(QApplication::translate("prismabasetrian", "Horizontal:", Q_NULLPTR));
         label_9->setText(QApplication::translate("prismabasetrian", "Reflexiones", Q_NULLPTR));
         label_10->setText(QApplication::translate("prismabasetrian", "Rotacion", Q_NULLPTR));
-        label_3->setText(QApplication::translate("prismabasetrian", "Radio:", Q_NULLPTR));
         label_6->setText(QApplication::translate("prismabasetrian", "Vertical:", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("prismabasetrian", "Trasladar", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("prismabasetrian", "Reflexion Horizontal", Q_NULLPTR));
