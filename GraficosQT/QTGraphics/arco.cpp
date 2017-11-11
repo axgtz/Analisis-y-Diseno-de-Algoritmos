@@ -35,7 +35,46 @@ void arco::paintEvent(QPaintEvent *e){
 }
 
 void arco::drawArco(QPainter &painter){
+    int radius = 100;
+    int x = 0, y = radius;
+    double p = 5.0/4.0-radius;
+    double deltaE, deltaSE;
+    deltaE = 3.0;
+    deltaSE = 5.0 - 2 * radius;
 
+    while(y>x){
+        if(p < 0) {
+            p += deltaE;
+            deltaE += 2;
+            deltaSE += 2;
+        }else{
+            p += deltaSE;
+            deltaE += 2;
+            deltaSE += 4;
+            y--;
+        }
+        x++;
+
+        int maxx = getmaxx()/2;
+
+        int maxy = getmaxy()/2;
+
+        putpixel(maxx+x,maxy+y,value);
+
+        putpixel(maxx+y,maxy+x,value);
+
+        putpixel(maxx-x,maxy+y,value);
+
+        putpixel(maxx+y,maxy-x,value);
+
+        putpixel(maxx+x,maxy-y,value);
+
+        putpixel(maxx-y,maxy+x,value);
+
+        putpixel(maxx-x,maxy-y,value);
+
+        putpixel(maxx-y,maxy-x,value);
+    }
 }
 
 
