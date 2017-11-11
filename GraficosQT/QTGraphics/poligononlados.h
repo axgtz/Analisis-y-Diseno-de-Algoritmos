@@ -2,7 +2,8 @@
 #define POLIGONONLADOS_H
 
 #include <QDialog>
-
+#include <QtGui>
+#include <QtCore>
 namespace Ui {
 class poligononlados;
 }
@@ -17,11 +18,12 @@ public:
 
 protected:
      void paintEvent(QPaintEvent *e);
-     void drawPoligono(QPainter &painter, int lados, int radio);
+     void drawPoligono(int lados, int rad,QPainter &painter);
 
 private:
     Ui::poligononlados *ui;
     bool draw = false;
+    int lados, radio;
     double centroX, centroY;
     QVector<QTransform> qVecTrans;
 

@@ -277,7 +277,7 @@
     <string>Radio:</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="boxLados_2">
+  <widget class="QTextEdit" name="boxRadio">
    <property name="geometry">
     <rect>
      <x>60</x>

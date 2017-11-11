@@ -26,7 +26,6 @@ class Ui_poligononlados
 public:
     QLabel *label;
     QPushButton *pushButton_5;
-    QLabel *label_2;
     QPushButton *pushButton;
     QPushButton *pushButton_4;
     QPushButton *pushButton_7;
@@ -37,15 +36,16 @@ public:
     QLabel *label_9;
     QLabel *label_10;
     QLabel *label_3;
-    QTextEdit *boxAngulo;
     QLabel *label_6;
     QPushButton *pushButton_2;
     QPushButton *pushButton_6;
     QLabel *label_8;
     QTextEdit *boxGrados;
-    QTextEdit *boxRadio;
+    QTextEdit *boxLados;
     QTextEdit *boxYinicio;
     QLabel *label_11;
+    QLabel *label_7;
+    QTextEdit *boxRadio;
 
     void setupUi(QDialog *poligononlados)
     {
@@ -58,9 +58,6 @@ public:
         pushButton_5 = new QPushButton(poligononlados);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(240, 70, 151, 32));
-        label_2 = new QLabel(poligononlados);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 80, 51, 16));
         pushButton = new QPushButton(poligononlados);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setEnabled(true);
@@ -92,9 +89,6 @@ public:
         label_3 = new QLabel(poligononlados);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(10, 40, 41, 16));
-        boxAngulo = new QTextEdit(poligononlados);
-        boxAngulo->setObjectName(QStringLiteral("boxAngulo"));
-        boxAngulo->setGeometry(QRect(60, 80, 41, 21));
         label_6 = new QLabel(poligononlados);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(400, 30, 91, 20));
@@ -110,15 +104,21 @@ public:
         boxGrados = new QTextEdit(poligononlados);
         boxGrados->setObjectName(QStringLiteral("boxGrados"));
         boxGrados->setGeometry(QRect(760, 40, 41, 21));
-        boxRadio = new QTextEdit(poligononlados);
-        boxRadio->setObjectName(QStringLiteral("boxRadio"));
-        boxRadio->setGeometry(QRect(50, 40, 41, 21));
+        boxLados = new QTextEdit(poligononlados);
+        boxLados->setObjectName(QStringLiteral("boxLados"));
+        boxLados->setGeometry(QRect(60, 30, 41, 21));
         boxYinicio = new QTextEdit(poligononlados);
         boxYinicio->setObjectName(QStringLiteral("boxYinicio"));
         boxYinicio->setGeometry(QRect(460, 30, 41, 21));
         label_11 = new QLabel(poligononlados);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(280, 10, 60, 16));
+        label_7 = new QLabel(poligononlados);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(10, 70, 41, 16));
+        boxRadio = new QTextEdit(poligononlados);
+        boxRadio->setObjectName(QStringLiteral("boxRadio"));
+        boxRadio->setGeometry(QRect(60, 70, 41, 21));
 
         retranslateUi(poligononlados);
 
@@ -130,7 +130,6 @@ public:
         poligononlados->setWindowTitle(QApplication::translate("poligononlados", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("poligononlados", "Poligono N Lados", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("poligononlados", "Zoom Out", Q_NULLPTR));
-        label_2->setText(QApplication::translate("poligononlados", "Angulo:", Q_NULLPTR));
         pushButton->setText(QApplication::translate("poligononlados", "Dibujar", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("poligononlados", "Zoom In", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("poligononlados", "Reflexion Vertical", Q_NULLPTR));
@@ -139,12 +138,13 @@ public:
         label_4->setText(QApplication::translate("poligononlados", "Horizontal:", Q_NULLPTR));
         label_9->setText(QApplication::translate("poligononlados", "Reflexiones", Q_NULLPTR));
         label_10->setText(QApplication::translate("poligononlados", "Rotacion", Q_NULLPTR));
-        label_3->setText(QApplication::translate("poligononlados", "Radio:", Q_NULLPTR));
+        label_3->setText(QApplication::translate("poligononlados", "Lados:", Q_NULLPTR));
         label_6->setText(QApplication::translate("poligononlados", "Vertical:", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("poligononlados", "Trasladar", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("poligononlados", "Reflexion Horizontal", Q_NULLPTR));
         label_8->setText(QApplication::translate("poligononlados", "Trasladar", Q_NULLPTR));
         label_11->setText(QApplication::translate("poligononlados", "Zooms", Q_NULLPTR));
+        label_7->setText(QApplication::translate("poligononlados", "Radio:", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -1,5 +1,7 @@
 #include "arco.h"
 #include "ui_arco.h"
+#include <QPainter>
+#include <QMessageBox>
 
 arco::arco(QWidget *parent) :
     QDialog(parent),

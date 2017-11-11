@@ -1,5 +1,7 @@
 #include "prismabasetrian.h"
 #include "ui_prismabasetrian.h"
+#include <QPainter>
+#include <QMessageBox>
 
 prismabasetrian::prismabasetrian(QWidget *parent) :
     QDialog(parent),

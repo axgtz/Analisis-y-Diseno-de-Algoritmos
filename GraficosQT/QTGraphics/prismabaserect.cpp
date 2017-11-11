@@ -1,5 +1,7 @@
 #include "prismabaserect.h"
 #include "ui_prismabaserect.h"
+#include <QPainter>
+#include <QMessageBox>
 
 prismabaserect::prismabaserect(QWidget *parent) :
     QDialog(parent),

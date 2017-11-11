@@ -1,46 +1,70 @@
 #include "poligononlados.h"
 #include "ui_poligononlados.h"
-
+#include <math.h>
+#include <QPainter>
+#include <QMessageBox>
+void drawPoligono(int lados, int rad, QPainter &painter);
 poligononlados::poligononlados(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::poligononlados)
 {
     ui->setupUi(this);
+    centroX = width()/2;
+    centroY = height()/2;
+    QTransform centro;
+    centro.translate(centroX,centroY);
+    qVecTrans.push_back(centro);
 }
 
 poligononlados::~poligononlados()
 {
     delete ui;
 }
-void drawPoligono(QPainter &painter, int lados, int radio){
-    double angulo = (double)360.0/(double)lados;
 
+void poligononlados::paintEvent(QPaintEvent *e){
+    QPainter painter(this);
+    QPen pointPen(Qt::red);
+    pointPen.setWidth(3);
+    painter.setPen(pointPen);
+    if (draw){
+        QString nS = ui->boxLados->toPlainText();
+        QString rS = ui->boxRadio->toPlainText();
+        if(!nS.isEmpty() && !rS.isEmpty()) {
+            lados = nS.toInt();
+            radio = rS.toInt();
+            for(int i=0; i<qVecTrans.size(); ++i){
+                painter.setTransform(qVecTrans[i],true);
+                drawPoligono(lados, radio ,painter);
+            }
+        }else {
+            QMessageBox msgBox;
+            msgBox.setText("Favor de elegir numero de lados y radio");
+            msgBox.exec();
+        }
+    }
+}
+
+void poligononlados::drawPoligono(int lados, int radio,QPainter &painter){
+      double ang = (double)360.0/(double)lados,  v = 3.141592 / 180, centX = 0.0, centY = 0.0;
       int xi,yi,xf,yf;
-      double val = 3.141592 / 180;
-      angulo *= val;
-      int a = 0;
+      ang *= v;
+      for(int a=1; a<=lados; a++) {
+        xi = centX + (radio * cos(ang*a));
+        yi = centY + (radio * sin(ang*a));
 
-      for(a=1; a<=lados; a++) {
-        xi = centroX + (radio * cos(angulo*a));
-        yi = centroY + (radio * sin(angulo*a));
-
-        xf = centroX + (radio * cos(angulo*(a+1)));
-        yf = centroY + (radio * sin(angulo*(a+1)));
+        xf = centX + (radio * cos(ang*(a+1)));
+        yf = centY + (radio * sin(ang*(a+1)));
 
         painter.drawLine(xi, yi, xf, yf);
       }
-}
-
-void poligononlados::paintEvent(QPaintEvent *e){
-
 }
 
 void poligononlados::on_pushButton_clicked()
 {
     qVecTrans.clear();
     QString n = ui->boxLados->toPlainText();
-     if(!n.isEmpty()) {
-       int nS = n.toInt();
+    QString r = ui->boxRadio->toPlainText();
+     if(!n.isEmpty() && !r.isEmpty()) {
 
        QTransform centro;
        centro.translate(centroX,centroY);
@@ -48,7 +72,7 @@ void poligononlados::on_pushButton_clicked()
        draw = !draw;
      } else {
        QMessageBox msgBox;
-       msgBox.setText("Favor de elegir numero de lados");
+       msgBox.setText("Favor de elegir numero de lados y radio");
        msgBox.exec();
      }
      update();

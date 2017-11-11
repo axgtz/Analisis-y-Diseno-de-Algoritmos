@@ -1,5 +1,7 @@
 #include "cono.h"
 #include "ui_cono.h"
+#include <QPainter>
+#include <QMessageBox>
 
 cono::cono(QWidget *parent) :
     QDialog(parent),
