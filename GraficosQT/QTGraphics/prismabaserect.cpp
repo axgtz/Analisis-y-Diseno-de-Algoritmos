@@ -36,6 +36,19 @@ void prismabaserect::paintEvent(QPaintEvent *e){
 }
 
 void prismabaserect::drawPrismaBaseRect(QPainter &painter){
+     painter.drawLine(0,100,60,0);
+     painter.drawLine(60,0,160,0);
+     painter.drawLine(60,-300,60,0);
+
+     painter.drawLine(100,100,160,0);
+     painter.drawLine(0,-200,60,-300);
+     painter.drawLine(100,-200,160,-300);
+     painter.drawLine(0,100,100,100);
+     painter.drawLine(0,-200,100,-200);
+     painter.drawLine(0,-200,0,100);
+     painter.drawLine(100,-200,100,100);
+     painter.drawLine(60,-300,160,-300);
+     painter.drawLine(160,-300,160,0);
 
 }
 void prismabaserect::on_pushButton_clicked()
