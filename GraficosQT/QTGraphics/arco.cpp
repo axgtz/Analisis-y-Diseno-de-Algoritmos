@@ -36,6 +36,8 @@ void arco::paintEvent(QPaintEvent *e){
 }
 
 void arco::drawArco(QPainter &painter){
+    painter.drawPoint();
+    /*
     int radius = 100;
     int x = 0, y = radius;
     double p = 5.0/4.0-radius;
@@ -60,7 +62,7 @@ void arco::drawArco(QPainter &painter){
         painter.drawLine(100-x,100+y,100+y,100-x);
         //painter.drawLine(100+x,100-y,100-y,100+x);
         //painter.drawLine(100-x,100-y,100-y,100-x);
-    }
+    }*/
 }
 
 
