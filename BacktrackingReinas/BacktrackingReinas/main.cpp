@@ -9,8 +9,7 @@ int **tablero;//Arreglo 2D que contiene el tablero
 
 //Impresión Tablero
 void imrpimirSolucion(){
-	for (int i = 0; i < tam; i++)
-	{
+	for (int i = 0; i < tam; i++){
 		for (int j = 0; j < tam; j++)
 			cout << tablero[i][j] << "  ";
 		cout << endl;

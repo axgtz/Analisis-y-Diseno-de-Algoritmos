@@ -102,7 +102,7 @@ void ArbolB<T>::borrarDato(Nodo<T> & nodo,T dato){
             borrarNoLeaf(nodo,i);
             save(nodo);
         }
-    }
+	}cout << "" << endl;
     else{
         if(nodo.leaf){
             cout << "El dato " << dato << " no existe en el arbol" << endl;
